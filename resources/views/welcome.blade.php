@@ -6,8 +6,10 @@
 
         {{-- Notre exigence --}}
         <section id="exigence" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <x-ui.section-heading title="Notre exigence" max-width="max-w-none">
-                <p>
+            <x-ui.section-heading title="Notre exigence" align="center" max-width="max-w-none">
+                {{-- Titre centré, mais paragraphe laissé au fer à gauche : centré, il serait
+                     illisible sur toute la largeur de la grille. --}}
+                <p class="text-left">
                     C-C propose une
                     <strong class="font-semibold text-brand-900">prestation CSPS complète, rigoureuse et conforme à la réglementation</strong>,
                     avec une forte expérience terrain, une organisation fiable et une méthodologie très structurée,
@@ -20,33 +22,37 @@
                     <x-ui.photo
                         src="images/chantiers/site-seveso.png"
                         alt="Site industriel SEVESO"
+                        caption="Site SEVESO Total"
                         class="shadow-lg"
                     />
 
-                    <figure>
+                    <div>
                         <x-ui.photo
                             src="images/chantiers/pont-albi.png"
                             alt="Échafaudages sur le vieux pont d'Albi"
+                            caption="Le vieux pont d'Albi"
                             class="shadow-lg"
                         />
-                        <figcaption class="mt-4">
+                        <div class="mt-4">
                             <p class="text-base font-bold text-brand-900">Des projets d'envergure en Occitanie</p>
                             <p class="mt-1 text-sm text-slate-500">
                                 L'aéroport de Rodez, le vieux pont d'Albi, barrages, site SEVESO Total…
                             </p>
-                        </figcaption>
-                    </figure>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="space-y-6 sm:pt-16">
                     <x-ui.photo
                         src="images/chantiers/aeroport-rodez.png"
                         alt="Vue aérienne de l'aéroport de Rodez"
+                        caption="Aéroport de Rodez"
                         class="shadow-lg"
                     />
                     <x-ui.photo
                         src="images/chantiers/genie-civil.png"
                         alt="Pose d'un tablier de pont par grue en vallée"
+                        caption="Ouvrage de génie civil"
                         class="shadow-lg"
                     />
                 </div>
@@ -57,7 +63,7 @@
         <section id="methodologie" class="bg-slate-50 py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
-                    title="Une méthodologie éprouvée pour votre sécurité"
+                    title="Une méthodologie éprouvée<br>pour votre sécurité"
                     align="center"
                     max-width="max-w-3xl"
                 />
@@ -65,7 +71,7 @@
                 {{-- Grille resserrée : à pleine largeur, les cartes seraient plus larges que hautes.
                      Les cercles numérotés débordant en haut, gap-y est généreux pour qu'ils ne
                      chevauchent pas la rangée précédente. --}}
-                <div class="mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mx-auto mt-20 grid max-w-4xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                     <x-site.methodology-step
                         number="1"
                         title="Analyse approfondie du site et de son environnement"
@@ -110,6 +116,7 @@
             <x-ui.section-heading
                 title="Missions principales assurées"
                 description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
+                align="center"
                 max-width="max-w-3xl"
             />
 

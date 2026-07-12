@@ -8,7 +8,7 @@
      min-h maintient le format portrait même quand le texte est court.
      Le cercle numéroté est en position absolue : il chevauche le bord supérieur
      sans intervenir dans ce centrage. --}}
-<div {{ $attributes->merge(['class' => 'relative flex min-h-88 flex-col justify-center rounded-2xl border border-slate-200 bg-white px-6 py-12 text-center shadow-sm']) }}>
+<div {{ $attributes->merge(['class' => 'relative flex min-h-84 flex-col justify-center rounded-2xl border border-slate-200 bg-white px-6 py-10 text-center shadow-sm']) }}>
     <span class="absolute -top-6 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-brand-700 text-base font-bold text-white">
         {{ $number }}
     </span>

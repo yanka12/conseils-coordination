@@ -18,10 +18,10 @@
             </p>
 
             <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-                Sécurité &amp; Protection de la santé sur vos chantiers
+                Sécurité &amp; Protection<br>de la santé sur vos chantiers
             </h1>
 
-            <div class="mt-6 max-w-xl space-y-4 text-sm leading-relaxed text-white/85 sm:text-base">
+            <div class="mt-6 max-w-2xl space-y-4 text-xs leading-relaxed text-white/85 sm:text-sm">
                 <p>
                     La SARL Conseils Coordination est une société spécialisée en
                     <strong class="font-semibold text-white">coordination SPS</strong>,
@@ -62,7 +62,7 @@
                 label="Coordonnateurs CSPS"
                 icon="helmet"
                 variant="medium"
-                class="w-full sm:w-64 lg:mr-16"
+                class="w-full sm:w-64"
             />
             <x-site.stat-card
                 value="28M€+"

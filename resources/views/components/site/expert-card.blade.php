@@ -15,7 +15,7 @@
         <dl class="mt-4 space-y-1 text-sm text-white/90">
             <div class="flex items-center gap-2">
                 <dt class="sr-only">Téléphone</dt>
-                <dd><a href="tel:{{ $phone }}" class="hover:underline">{{ $phone }}</a></dd>
+                <dd><a href="tel:{{ $phone }}" class="font-bold hover:underline">{{ $phone }}</a></dd>
             </div>
             <div class="flex items-center gap-2">
                 <dt class="sr-only">Email</dt>

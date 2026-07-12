@@ -18,6 +18,9 @@
     --color-brand-800: #141f33;
     --color-brand-900: #0d1522;
     --color-brand-950: #080d16;
+
+    /* Bleu clair du logo, repris par les boutons du footer. */
+    --color-brand-light: #a5c3e8;
 }
 
 /*
