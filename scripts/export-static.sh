@@ -33,6 +33,15 @@ echo "==> Capture du HTML"
 rm -rf dist
 mkdir -p dist
 
+# Sans ce contrôle, une page d'erreur Laravel (500) serait exportée telle quelle
+# et déployée sans que rien ne le signale.
+STATUS=$(curl -s -o /dev/null -w '%{http_code}' "$ORIGIN")
+if [ "$STATUS" != "200" ]; then
+    echo "ERREUR : la page répond $STATUS au lieu de 200." >&2
+    curl -s "$ORIGIN" | grep -oE '<h1[^>]*>[^<]*' | sed 's/<[^>]*>//' >&2 || true
+    exit 1
+fi
+
 # asset() produit des URL absolues vers l'hôte local. On les rend relatives :
 # GitHub Pages sert le site depuis un sous-dossier (/conseils-coordination/),
 # où des chemins commençant par « / » pointeraient à la racine du domaine.
