@@ -114,3 +114,38 @@
         animation: none;
     }
 }
+
+/*
+ * Carrousel de logos : défilement horizontal continu.
+ *
+ * La piste contient deux copies identiques de la liste. La faire glisser
+ * d'exactement -50 % amène la seconde copie là où était la première : le saut
+ * au rebouclage est alors invisible, et la boucle paraît infinie.
+ */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee {
+    /* Les logos s'effacent aux deux bords au lieu d'être tranchés net. */
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee__track {
+    animation: marquee 90s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee__track {
+        animation: none;
+    }
+}

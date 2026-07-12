@@ -193,15 +193,7 @@
 
         {{-- Clients --}}
         <section id="clients" class="border-t border-slate-100 py-14">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="grid grid-cols-2 gap-4 sm:grid-cols-5">
-                    <x-site.client-logo name="Client 1" />
-                    <x-site.client-logo name="Client 2" />
-                    <x-site.client-logo name="Client 3" />
-                    <x-site.client-logo name="Client 4" />
-                    <x-site.client-logo name="Client 5" />
-                </div>
-            </div>
+            <x-site.logo-carousel />
         </section>
     </main>
 
