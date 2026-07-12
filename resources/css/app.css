@@ -125,9 +125,19 @@ html {
 /*
  * Le header est collant : sans cette marge, une ancre amène le haut de la section
  * juste derrière lui, et son titre reste caché.
+ *
+ * Sur mobile il ne fait qu'une barre (~60 px) ; en desktop s'y ajoute la barre de
+ * navigation (~105 px). Réserver 7 rem partout gaspillait un tiers d'écran sur
+ * téléphone et repoussait le contenu sous la ligne de flottaison.
  */
 section[id] {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 5rem;
+}
+
+@media (min-width: 1024px) {
+    section[id] {
+        scroll-margin-top: 8rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -85,8 +85,28 @@ function initMobileNav() {
 
     // Une ancre ne recharge pas la page : il faut refermer le panneau à la main,
     // sinon il masque la section vers laquelle on vient de sauter.
+    //
+    // Le défilement est piloté ici plutôt que laissé au navigateur : le verrou posé
+    // sur le body n'est pas toujours levé à temps, et iOS ignore alors le saut.
     panel.querySelectorAll('[data-nav-link]').forEach((link) => {
-        link.addEventListener('click', () => setOpen(false));
+        link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href') || '';
+            const target = href.startsWith('#') ? document.querySelector(href) : null;
+
+            setOpen(false);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            // Une frame d'attente : le temps que le verrou soit effectivement levé.
+            requestAnimationFrame(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', href);
+            });
+        });
     });
 
     document.addEventListener('keydown', (event) => {

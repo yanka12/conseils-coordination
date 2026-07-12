@@ -5,7 +5,7 @@
         <x-site.hero />
 
         {{-- Notre exigence --}}
-        <section id="exigence" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <section id="exigence" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
             <x-ui.section-heading title="Notre exigence" align="center" max-width="max-w-none">
                 {{-- Titre centré, mais paragraphe laissé au fer à gauche : centré, il serait
                      illisible sur toute la largeur de la grille. --}}
@@ -60,7 +60,7 @@
         </section>
 
         {{-- Méthodologie --}}
-        <section id="methodologie" class="bg-slate-50 py-20">
+        <section id="methodologie" class="bg-slate-50 py-14 sm:py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
                     title="Une méthodologie éprouvée<br>pour votre sécurité"
@@ -112,7 +112,7 @@
         </section>
 
         {{-- Missions principales --}}
-        <section id="missions" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <section id="missions" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
             <x-ui.section-heading
                 title="Missions principales assurées"
                 description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
@@ -154,7 +154,7 @@
         </section>
 
         {{-- Experts --}}
-        <section id="experts" class="bg-slate-50 py-20">
+        <section id="experts" class="bg-slate-50 py-14 sm:py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
                     eyebrow="L'équipe"
@@ -183,7 +183,7 @@
 
         {{-- CTA. Porte l'ancre « clients » : atterrir directement sur le carrousel, sans
              titre au-dessus, ne dit pas au visiteur où il vient d'arriver. --}}
-        <section id="clients" class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-8">
+        <section id="clients" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 text-center lg:px-8">
             <x-ui.section-heading
                 eyebrow="Votre projet"
                 title="Parlons de votre projet"
@@ -194,7 +194,7 @@
         </section>
 
         {{-- Clients --}}
-        <section class="border-t border-slate-100 py-14">
+        <section class="border-t border-slate-100 py-10 sm:py-14">
             <x-site.logo-carousel />
         </section>
     </main>

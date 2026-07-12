@@ -17,7 +17,9 @@
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 lg:px-8">
             {{-- La marque est 1,7 fois plus large que haute : à h-9 elle prend ~62 px. Avec le nom
                  en 16 px, la barre débordait des petits écrans (375 px). D'où la réduction. --}}
-            <a href="/" class="flex min-w-0 items-center gap-2 sm:gap-3">
+            {{-- « ./ » et non « / » : le site est servi depuis un sous-dossier sur GitHub Pages,
+                 où « / » renverrait à la racine du domaine, hors du site. --}}
+            <a href="./" class="flex min-w-0 items-center gap-2 sm:gap-3">
                 <img
                     src="{{ asset('images/logos/Logo-CC-mark.png') }}"
                     alt=""
