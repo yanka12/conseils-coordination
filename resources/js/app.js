@@ -5,7 +5,10 @@
  * découvre jamais ses bords. Le déplacement est lissé image par image plutôt
  * qu'appliqué directement au mousemove, sinon le mouvement paraît saccadé.
  */
-const AMPLITUDE = 8; // décalage maximal en pixels
+// Amplitudes dissociées : l'écran étant bien plus large que haut, une même
+// valeur sur les deux axes donne un mouvement horizontal qui paraît timide.
+const AMPLITUDE_X = 18; // décalage horizontal maximal, en pixels
+const AMPLITUDE_Y = 6; // décalage vertical maximal, en pixels
 const SMOOTHING = 0.08; // plus la valeur est basse, plus le suivi est doux
 
 function initHeroParallax() {
@@ -31,8 +34,8 @@ function initHeroParallax() {
         const ratioY = event.clientY / window.innerHeight - 0.5;
 
         // Signe négatif : l'image part à l'opposé du curseur.
-        targetX = -ratioX * AMPLITUDE * 2;
-        targetY = -ratioY * AMPLITUDE * 2;
+        targetX = -ratioX * AMPLITUDE_X * 2;
+        targetY = -ratioY * AMPLITUDE_Y * 2;
     });
 
     function render() {
