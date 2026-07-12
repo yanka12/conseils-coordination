@@ -20,10 +20,23 @@
                 Sécurité &amp; Protection de la santé sur vos chantiers
             </h1>
 
-            <p class="mt-6 max-w-xl text-base leading-relaxed text-white/85">
-                Depuis 2008, Conseils Coordination accompagne les maîtres d'ouvrage et maîtres d'œuvre
-                dans la coordination de la sécurité de leurs opérations de construction.
-            </p>
+            <div class="mt-6 max-w-xl space-y-4 text-sm leading-relaxed text-white/85 sm:text-base">
+                <p>
+                    La SARL Conseils Coordination est une société spécialisée en
+                    <strong class="font-semibold text-white">coordination SPS</strong>,
+                    créée en 2004 et basée à Albi.
+                </p>
+                <p>
+                    L'équipe est composée de
+                    <strong class="font-semibold text-white">coordonnateurs SPS certifiés niveau 1</strong>
+                    (Conception et Coordination), avec une organisation permettant la continuité
+                    de mission en cas d'absence.
+                </p>
+                <p>
+                    Toutes les missions sont réalisées en interne, sans aucune sous-traitance,
+                    avec un engagement de forte réactivité.
+                </p>
+            </div>
 
             <div class="mt-8 flex flex-wrap gap-4">
                 <x-ui.button href="#contact" variant="primary">
@@ -44,7 +57,7 @@
                 class="w-full sm:w-64"
             />
             <x-site.stat-card
-                value="3"
+                value="2"
                 label="Coordonnateurs CSPS"
                 icon="helmet"
                 variant="medium"
