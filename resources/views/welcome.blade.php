@@ -62,9 +62,10 @@
                     max-width="max-w-3xl"
                 />
 
-                {{-- Les cercles numérotés débordent en haut des cartes : gap-y généreux pour éviter
-                     qu'ils ne chevauchent la rangée précédente. --}}
-                <div class="mt-20 grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+                {{-- Grille resserrée : à pleine largeur, les cartes seraient plus larges que hautes.
+                     Les cercles numérotés débordant en haut, gap-y est généreux pour qu'ils ne
+                     chevauchent pas la rangée précédente. --}}
+                <div class="mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                     <x-site.methodology-step
                         number="1"
                         title="Analyse approfondie du site et de son environnement"
