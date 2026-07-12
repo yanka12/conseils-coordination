@@ -6,7 +6,7 @@
 
         {{-- Notre exigence --}}
         <section id="exigence" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <x-ui.section-heading title="Notre exigence" class="max-w-3xl">
+            <x-ui.section-heading title="Notre exigence" max-width="max-w-none">
                 <p>
                     C-C propose une
                     <strong class="font-semibold text-brand-900">prestation CSPS complète, rigoureuse et conforme à la réglementation</strong>,
@@ -103,7 +103,7 @@
             <x-ui.section-heading
                 title="Missions principales assurées"
                 description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
-                class="max-w-3xl"
+                max-width="max-w-3xl"
             />
 
             @php

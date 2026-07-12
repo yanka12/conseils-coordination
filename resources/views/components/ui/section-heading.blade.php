@@ -3,13 +3,15 @@
     'title',
     'description' => null,
     'align' => 'left',
+    // Passer « max-w-none » pour occuper toute la largeur du conteneur.
+    'maxWidth' => 'max-w-2xl',
 ])
 
 @php
     $alignClasses = $align === 'center' ? 'mx-auto text-center' : 'text-left';
 @endphp
 
-<div {{ $attributes->merge(['class' => "max-w-2xl $alignClasses"]) }}>
+<div {{ $attributes->merge(['class' => "$maxWidth $alignClasses"]) }}>
     @if ($eyebrow)
         <p class="text-sm font-semibold tracking-wider text-brand-500 uppercase">{{ $eyebrow }}</p>
     @endif
