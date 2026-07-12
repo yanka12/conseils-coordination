@@ -183,12 +183,6 @@
                 align="center"
                 class="mx-auto"
             />
-
-            <div class="mt-8">
-                <x-ui.button href="tel:0677762824" variant="primary">
-                    Contactez-nous
-                </x-ui.button>
-            </div>
         </section>
 
         {{-- Clients --}}

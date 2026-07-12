@@ -16,10 +16,10 @@
         : 'border-white/15 bg-white/10';
 @endphp
 
-<div {{ $attributes->merge(['class' => "rounded-xl border $card p-5 backdrop-blur-sm"]) }}>
+<div {{ $attributes->merge(['class' => "rounded-xl border $card px-5 py-4 backdrop-blur-sm"]) }}>
     <div class="flex items-center gap-3">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white">
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 {!! $icons[$icon] ?? $icons['pin'] !!}
             </svg>
         </span>
@@ -27,7 +27,7 @@
         <h3 class="text-sm font-semibold text-white">{{ $title }}</h3>
     </div>
 
-    <div class="mt-4 text-sm leading-relaxed text-white/75">
+    <div class="mt-3 text-sm leading-snug text-white/75">
         {{ $slot }}
     </div>
 </div>
