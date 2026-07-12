@@ -57,43 +57,49 @@
         <section id="methodologie" class="bg-slate-50 py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
-                    eyebrow="Notre méthode"
                     title="Une méthodologie éprouvée pour votre sécurité"
                     align="center"
-                    class="mx-auto"
+                    max-width="max-w-3xl"
                 />
 
-                <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {{-- Les cercles numérotés débordent en haut des cartes : gap-y généreux pour éviter
+                     qu'ils ne chevauchent la rangée précédente. --}}
+                <div class="mt-20 grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                     <x-site.methodology-step
                         number="1"
-                        title="Analyse approfondie du site"
-                        description="Étude du site et de son environnement pour identifier les contraintes spécifiques du chantier."
+                        title="Analyse approfondie du site et de son environnement"
+                        description="Comprendre le site pour anticiper chaque contrainte. Réseaux, circulation, établissements sensibles…"
                     />
                     <x-site.methodology-step
                         number="2"
-                        title="Anticipation des risques"
-                        description="Identification des risques d'interférence et de coactivité entre les entreprises intervenantes."
+                        title="Anticipation des risques importés/exportés, et de la coactivité"
+                        description="Identifier les risques avant qu'ils ne deviennent des problèmes."
                     />
                     <x-site.methodology-step
                         number="3"
-                        title="Coordination des acteurs"
-                        description="Coordination continue avec la maîtrise d'ouvrage et l'ensemble des entreprises."
+                        title="Coordination étroite avec le maître d'ouvrage, le maître d'œuvre et les entreprises."
+                        description="Faciliter les échanges entre tous les intervenants."
                     />
                     <x-site.methodology-step
                         number="4"
-                        title="Mesures de prévention"
-                        description="Définition et suivi des mesures de prévention adaptées à chaque phase du chantier."
+                        title="Mesures de prévention collectives et individuelles"
+                        description="Des mesures adaptées à chaque phase pour garantir la sécurité de tous."
                     />
                     <x-site.methodology-step
                         number="5"
-                        title="Documentation réglementaire"
-                        description="Rédaction et mise à jour des documents normalisés (PGC, DIUO, registre journal)."
+                        title="Documentation structurée, normalisée et conforme au Code du travail"
+                        description="Garantir une conformité réglementaire sans compromis."
                     />
-                    <x-site.methodology-step
-                        number="6"
-                        title="Conformité au Code du travail"
-                        description="Vérification continue de la conformité des installations et pratiques du chantier."
-                    />
+
+                    {{-- Sixième case : l'illustration remplace une carte, comme sur la maquette. --}}
+                    <div class="flex items-center justify-center">
+                        <img
+                            src="{{ asset('images/casque.png') }}"
+                            alt="Casque de chantier aux couleurs de Conseils Coordination"
+                            loading="lazy"
+                            class="w-full max-w-xs"
+                        >
+                    </div>
                 </div>
             </div>
         </section>
