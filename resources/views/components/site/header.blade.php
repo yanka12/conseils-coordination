@@ -14,17 +14,21 @@
 <header class="sticky top-0 z-40">
     {{-- Barre supérieure : logo, contact, et le bouton du menu sur mobile --}}
     <div class="bg-white">
-        <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 lg:px-8">
-            <a href="/" class="flex shrink-0 items-center gap-3">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 lg:px-8">
+            {{-- La marque est 1,7 fois plus large que haute : à h-9 elle prend ~62 px. Avec le nom
+                 en 16 px, la barre débordait des petits écrans (375 px). D'où la réduction. --}}
+            <a href="/" class="flex min-w-0 items-center gap-2 sm:gap-3">
                 <img
                     src="{{ asset('images/logos/Logo-CC-mark.png') }}"
                     alt=""
-                    class="h-9 w-auto"
+                    class="h-7 w-auto shrink-0 sm:h-9"
                 >
-                <span class="text-base font-bold text-brand-900 sm:text-lg">Conseils Coordination</span>
+                <span class="truncate text-sm font-bold text-brand-900 sm:text-base lg:text-lg">
+                    Conseils Coordination
+                </span>
             </a>
 
-            <div class="flex items-center gap-5">
+            <div class="flex shrink-0 items-center gap-5">
                 <a href="tel:{{ str_replace('.', '', $phone) }}" class="hidden text-sm font-semibold text-brand-900 sm:inline">
                     {{ $phone }}
                 </a>
@@ -71,7 +75,9 @@
         data-open="false"
         class="nav-panel fixed inset-0 z-50 translate-x-full bg-brand-900/95 backdrop-blur-lg transition-transform duration-300 ease-out lg:hidden"
     >
-        <div class="flex h-full flex-col px-6 pt-5 pb-10">
+        {{-- overflow-y-auto : en paysage, l'écran est trop court pour tout afficher et les
+             boutons du bas deviendraient inatteignables. --}}
+        <div class="flex h-full flex-col overflow-y-auto px-6 pt-5 pb-10">
             <div class="flex items-center justify-between">
                 <img
                     src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"

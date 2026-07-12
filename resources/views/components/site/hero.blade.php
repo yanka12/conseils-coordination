@@ -1,4 +1,6 @@
-<section class="relative flex min-h-screen items-center overflow-hidden text-white">
+{{-- svh et non vh : sur mobile, 100vh compte la zone masquée par la barre d'adresse,
+     ce qui pousse une partie du hero hors de l'écran au chargement. --}}
+<section class="relative flex min-h-svh items-center overflow-hidden text-white">
     {{-- Photo de fond. Elle est plus haute que la section et remonte d'autant : cette réserve
          est ce que la parallaxe révèle en la faisant redescendre au fil du scroll. --}}
     <img
@@ -12,14 +14,17 @@
     <div class="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/85 to-transparent"></div>
 
     {{-- Colonne de gauche élargie : à parts égales, « chantiers » basculait sur une 3e ligne. --}}
-    <div class="relative mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.6fr_1fr] lg:items-center lg:px-8">
+    <div class="relative mx-auto grid w-full max-w-7xl gap-10 px-6 py-14 sm:py-20 lg:grid-cols-[1.6fr_1fr] lg:items-center lg:gap-12 lg:px-8">
         <div>
             <p class="text-xs font-semibold tracking-[0.2em] text-white/70 uppercase">
                 Coordonnateur SPS en région Occitanie
             </p>
 
-            <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-                Sécurité &amp; Protection<br>de la santé sur vos chantiers
+            {{-- La coupure n'est forcée qu'en desktop : sur mobile le texte se replie déjà tout
+                 seul, et le <br> ajouterait une rupture au mauvais endroit. --}}
+            <h1 class="mt-5 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                Sécurité &amp; Protection<br class="hidden lg:inline">
+                de la santé sur vos chantiers
             </h1>
 
             <div class="mt-6 max-w-2xl space-y-4 text-xs leading-relaxed text-white/85 sm:text-sm">
