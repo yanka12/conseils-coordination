@@ -14,8 +14,9 @@
     >
 
     @if ($caption)
-        {{-- Bande posée un peu au-dessus du bord bas, pas collée à lui. --}}
-        <figcaption class="absolute inset-x-0 bottom-4 bg-brand-900/70 px-4 py-2 text-[10px] font-semibold text-white backdrop-blur-sm">
+        {{-- Dégradé montant du bas : opaque sous le texte, il s'efface vers le haut.
+             Le texte reste lisible sans que la photo soit tranchée par une bande. --}}
+        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-900 via-brand-900/70 to-transparent px-4 pt-10 pb-3 text-[10px] font-semibold text-white">
             {{ $caption }}
         </figcaption>
     @endif
