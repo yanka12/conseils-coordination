@@ -11,7 +11,8 @@
     {{-- Calque de marque : opaque à gauche pour la lisibilité du texte, transparent à droite pour laisser voir la photo --}}
     <div class="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/85 to-transparent"></div>
 
-    <div class="relative mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:px-8">
+    {{-- Colonne de gauche élargie : à parts égales, « chantiers » basculait sur une 3e ligne. --}}
+    <div class="relative mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.6fr_1fr] lg:items-center lg:px-8">
         <div>
             <p class="text-xs font-semibold tracking-[0.2em] text-white/70 uppercase">
                 Coordonnateur SPS en région Occitanie
@@ -49,7 +50,8 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-10 lg:items-end">
+        {{-- mr décolle les cartes du bord droit sans rompre leur alignement entre elles. --}}
+        <div class="flex flex-col gap-10 lg:items-end lg:mr-10">
             <x-site.stat-card
                 value="17+"
                 label="Années d'expérience"

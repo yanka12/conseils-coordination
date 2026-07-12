@@ -6,21 +6,25 @@
          C'est ce qui permet à la carte de remplir toute la hauteur. --}}
     <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1fr_1.5fr_1fr] lg:px-8">
 
-        {{-- Colonne 1 : logo et contact, dans la déclinaison gris / bleu clair. --}}
-        <div class="flex flex-col items-center justify-center gap-8 lg:items-start">
-            <img
-                src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"
-                alt="Conseils Coordination"
-                class="w-40"
-            >
+        {{-- Colonne 1 : logo et contact, dans la déclinaison gris / bleu clair.
+             Logo et boutons partagent la même largeur : le mx-auto centre donc le logo
+             sur les boutons, et non sur la colonne entière. --}}
+        <div class="flex flex-col items-center justify-center lg:items-start">
+            <div class="flex w-full max-w-56 flex-col gap-8">
+                <img
+                    src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"
+                    alt="Conseils Coordination"
+                    class="mx-auto w-40"
+                >
 
-            <div class="flex w-full max-w-56 flex-col gap-3">
-                <x-ui.button href="tel:0677762824" variant="light">
-                    Contactez-nous
-                </x-ui.button>
-                <x-ui.button href="mailto:contact@conseils-coordination.fr" variant="light">
-                    Envoyer un e-mail
-                </x-ui.button>
+                <div class="flex flex-col gap-3">
+                    <x-ui.button href="tel:0677762824" variant="light">
+                        Contactez-nous
+                    </x-ui.button>
+                    <x-ui.button href="mailto:contact@conseils-coordination.fr" variant="light">
+                        Envoyer un e-mail
+                    </x-ui.button>
+                </div>
             </div>
         </div>
 
@@ -30,7 +34,7 @@
                 <p class="font-semibold text-white">20 rue Jean Rieux - 81000 Albi</p>
             </x-site.info-card>
 
-            <x-site.info-card title="Mentions légales" icon="document" variant="dark">
+            <x-site.info-card title="Mentions légales" icon="document" variant="dark" layout="stacked">
                 <dl class="grid gap-x-6 gap-y-1.5 text-xs sm:grid-cols-2">
                     <div>
                         <dt class="text-white/50">SIRET</dt>
@@ -59,7 +63,7 @@
                 </dl>
             </x-site.info-card>
 
-            <x-site.info-card title="Informations sur le site internet" icon="info">
+            <x-site.info-card title="Informations sur le site internet" icon="info" layout="stacked">
                 <ul class="space-y-0.5 text-center text-xs">
                     <li>Directeur de publication : <span class="text-white/90">Didier Zieba</span></li>
                     <li>Hébergeur du site : <span class="text-white/90">GitHub Pages</span></li>

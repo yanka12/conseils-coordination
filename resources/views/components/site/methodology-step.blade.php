@@ -10,7 +10,7 @@
      sans intervenir dans ce centrage. --}}
 {{-- max-w borne la largeur sur la carte, pas sur la grille : sans cela, en 2 colonnes
      (écrans < 1024 px) la cellule s'élargit et la carte redevient horizontale. --}}
-<div {{ $attributes->merge(['class' => 'relative mx-auto flex min-h-96 w-full max-w-72 flex-col justify-center rounded-2xl border border-slate-200 bg-white px-6 py-10 text-center shadow-sm']) }}>
+<div {{ $attributes->merge(['class' => 'relative mx-auto flex min-h-88 w-full max-w-72 flex-col justify-center rounded-2xl border border-slate-200 bg-white px-6 py-10 text-center shadow-sm']) }}>
     <span class="absolute -top-6 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-brand-700 text-base font-bold text-white">
         {{ $number }}
     </span>

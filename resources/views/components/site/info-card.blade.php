@@ -2,6 +2,9 @@
     'title',
     'icon' => 'pin',
     'variant' => 'light',
+    // « inline » aligne le contenu sous le titre, à droite de l'icône (cartes courtes).
+    // « stacked » le fait courir sur toute la largeur, sous l'en-tête (contenu long).
+    'layout' => 'inline',
 ])
 
 @php
@@ -17,17 +20,31 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => "rounded-xl border $card px-5 py-4 backdrop-blur-sm"]) }}>
-    <div class="flex items-center gap-3">
+    <div class="flex gap-3">
         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white">
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 {!! $icons[$icon] ?? $icons['pin'] !!}
             </svg>
         </span>
 
-        <h3 class="text-sm font-semibold text-white">{{ $title }}</h3>
+        @if ($layout === 'inline')
+            {{-- Titre et contenu dans la même colonne : le texte se cale sous le titre,
+                 et non sous l'icône. --}}
+            <div class="min-w-0 flex-1">
+                <h3 class="text-sm font-semibold text-white">{{ $title }}</h3>
+
+                <div class="mt-1 text-sm leading-snug text-white/75">
+                    {{ $slot }}
+                </div>
+            </div>
+        @else
+            <h3 class="self-center text-sm font-semibold text-white">{{ $title }}</h3>
+        @endif
     </div>
 
-    <div class="mt-3 text-sm leading-snug text-white/75">
-        {{ $slot }}
-    </div>
+    @if ($layout !== 'inline')
+        <div class="mt-3 text-sm leading-snug text-white/75">
+            {{ $slot }}
+        </div>
+    @endif
 </div>
