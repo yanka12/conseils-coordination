@@ -5,7 +5,7 @@
  * découvre jamais ses bords. Le déplacement est lissé image par image plutôt
  * qu'appliqué directement au mousemove, sinon le mouvement paraît saccadé.
  */
-const AMPLITUDE = 18; // décalage maximal en pixels
+const AMPLITUDE = 8; // décalage maximal en pixels
 const SMOOTHING = 0.08; // plus la valeur est basse, plus le suivi est doux
 
 function initHeroParallax() {
