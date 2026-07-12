@@ -118,6 +118,24 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/*
+ * Le header est collant : sans cette marge, une ancre amène le haut de la section
+ * juste derrière lui, et son titre reste caché.
+ */
+section[id] {
+    scroll-margin-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 /*
  * Menu mobile : les entrées arrivent l'une après l'autre à l'ouverture.
  * Le décalage vient d'un --i posé sur chaque <li> dans le gabarit.

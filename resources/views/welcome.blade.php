@@ -181,8 +181,9 @@
             </div>
         </section>
 
-        {{-- CTA --}}
-        <section class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-8">
+        {{-- CTA. Porte l'ancre « clients » : atterrir directement sur le carrousel, sans
+             titre au-dessus, ne dit pas au visiteur où il vient d'arriver. --}}
+        <section id="clients" class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-8">
             <x-ui.section-heading
                 eyebrow="Votre projet"
                 title="Parlons de votre projet"
@@ -193,7 +194,7 @@
         </section>
 
         {{-- Clients --}}
-        <section id="clients" class="border-t border-slate-100 py-14">
+        <section class="border-t border-slate-100 py-14">
             <x-site.logo-carousel />
         </section>
     </main>
