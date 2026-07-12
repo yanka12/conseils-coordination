@@ -6,4 +6,111 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-brand-50: #eef1f7;
+    --color-brand-100: #d3dbe9;
+    --color-brand-200: #a7b7d3;
+    --color-brand-300: #7b93bd;
+    --color-brand-400: #4c6699;
+    --color-brand-500: #2f4670;
+    --color-brand-600: #223655;
+    --color-brand-700: #1b2a44;
+    --color-brand-800: #141f33;
+    --color-brand-900: #0d1522;
+    --color-brand-950: #080d16;
+}
+
+/*
+ * Cartes « missions » : chaque carte bascule en bleu marine à son tour puis
+ * revient au blanc, façon vague de validation. Les couleurs passent par des
+ * custom properties enregistrées via @property, sans quoi elles sauteraient
+ * d'un état à l'autre au lieu de se fondre.
+ */
+@property --mission-bg {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #ffffff;
+}
+@property --mission-border {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #e2e8f0;
+}
+@property --mission-text {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #475569;
+}
+@property --mission-strong {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #0d1522;
+}
+@property --mission-badge-bg {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #eef1f7;
+}
+@property --mission-badge-icon {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #1b2a44;
+}
+
+/*
+ * La fenêtre « foncée » se referme avant 9 % du cycle. Comme chaque carte est
+ * décalée d'un créneau entier (100 % / nombre de cartes), une seule carte est
+ * allumée à la fois : la coche descend la liste ligne par ligne, sans recouvrement.
+ */
+@keyframes mission-check {
+    0% {
+        --mission-bg: #ffffff;
+        --mission-border: #e2e8f0;
+        --mission-text: #475569;
+        --mission-strong: #0d1522;
+        --mission-badge-bg: #eef1f7;
+        --mission-badge-icon: #1b2a44;
+    }
+    1.5%,
+    7% {
+        --mission-bg: #141f33;
+        --mission-border: #141f33;
+        --mission-text: #ffffff;
+        --mission-strong: #ffffff;
+        --mission-badge-bg: rgb(255 255 255 / 0.15);
+        --mission-badge-icon: #ffffff;
+    }
+    9%,
+    100% {
+        --mission-bg: #ffffff;
+        --mission-border: #e2e8f0;
+        --mission-text: #475569;
+        --mission-strong: #0d1522;
+        --mission-badge-bg: #eef1f7;
+        --mission-badge-icon: #1b2a44;
+    }
+}
+
+.mission-item {
+    background-color: var(--mission-bg);
+    border-color: var(--mission-border);
+    color: var(--mission-text);
+    animation-name: mission-check;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.mission-item__badge {
+    background-color: var(--mission-badge-bg);
+    color: var(--mission-badge-icon);
+}
+
+.mission-item__text strong {
+    color: var(--mission-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mission-item {
+        animation: none;
+    }
 }
