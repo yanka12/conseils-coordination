@@ -52,4 +52,58 @@ function initHeroParallax() {
     update();
 }
 
+/**
+ * Menu mobile : panneau plein écran glissant depuis la droite.
+ */
+function initMobileNav() {
+    const panel = document.querySelector('[data-nav-panel]');
+    const toggle = document.querySelector('[data-nav-toggle]');
+
+    if (!panel || !toggle) {
+        return;
+    }
+
+    const bars = toggle.querySelectorAll('[data-nav-bar]');
+
+    function setOpen(open) {
+        panel.dataset.open = String(open);
+        panel.classList.toggle('translate-x-full', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+
+        // Les deux barres du hamburger se croisent au centre.
+        bars[0].style.transform = open ? 'translateY(6px) rotate(45deg)' : '';
+        bars[1].style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+
+        // Sans ce verrou, la page continue de défiler derrière le panneau.
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle.addEventListener('click', () => setOpen(panel.dataset.open !== 'true'));
+
+    panel.querySelector('[data-nav-close]').addEventListener('click', () => setOpen(false));
+
+    // Une ancre ne recharge pas la page : il faut refermer le panneau à la main,
+    // sinon il masque la section vers laquelle on vient de sauter.
+    panel.querySelectorAll('[data-nav-link]').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && panel.dataset.open === 'true') {
+            setOpen(false);
+            toggle.focus();
+        }
+    });
+
+    // Le panneau est masqué au-delà de lg : s'il restait « ouvert », le verrou de
+    // défilement survivrait au passage en écran large.
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+        if (event.matches) {
+            setOpen(false);
+        }
+    });
+}
+
 initHeroParallax();
+initMobileNav();

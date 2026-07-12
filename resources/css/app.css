@@ -119,6 +119,35 @@
 }
 
 /*
+ * Menu mobile : les entrées arrivent l'une après l'autre à l'ouverture.
+ * Le décalage vient d'un --i posé sur chaque <li> dans le gabarit.
+ */
+@keyframes nav-item-in {
+    from {
+        opacity: 0;
+        transform: translateX(1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nav-panel[data-open='true'] .nav-item {
+    /* backwards : l'entrée reste invisible pendant son délai, au lieu de clignoter. */
+    animation: nav-item-in 0.45s ease-out backwards;
+    animation-delay: calc(var(--i) * 45ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-panel,
+    .nav-panel[data-open='true'] .nav-item {
+        transition: none;
+        animation: none;
+    }
+}
+
+/*
  * Carrousel de logos : défilement horizontal continu.
  *
  * La piste contient deux copies identiques de la liste. La faire glisser
