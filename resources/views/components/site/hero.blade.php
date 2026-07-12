@@ -1,10 +1,11 @@
 <section class="relative flex min-h-screen items-center overflow-hidden text-white">
-    {{-- Photo de fond. Le scale compense la parallaxe : sans lui, le décalage découvrirait les bords. --}}
+    {{-- Photo de fond. Elle est plus haute que la section et remonte d'autant : cette réserve
+         est ce que la parallaxe révèle en la faisant redescendre au fil du scroll. --}}
     <img
         data-parallax
         src="{{ asset('images/hero.webp') }}"
         alt="Grue et ferraillage sur un chantier de gros œuvre"
-        class="absolute inset-0 h-full w-full scale-108 object-cover will-change-transform"
+        class="absolute -top-[30%] left-0 h-[130%] w-full object-cover will-change-transform"
     >
 
     {{-- Calque de marque : opaque à gauche pour la lisibilité du texte, transparent à droite pour laisser voir la photo --}}

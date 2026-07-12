@@ -1,15 +1,14 @@
 /**
- * Parallaxe du hero : l'image de fond se décale à l'inverse du curseur.
+ * Parallaxe au scroll du hero.
  *
- * L'image est légèrement agrandie en CSS (scale) afin que le décalage ne
- * découvre jamais ses bords. Le déplacement est lissé image par image plutôt
- * qu'appliqué directement au mousemove, sinon le mouvement paraît saccadé.
+ * L'image défile moins vite que la page : on la décale vers le bas d'une
+ * fraction du scroll, ce qui annule d'autant son déplacement naturel vers le
+ * haut. Elle semble alors se trouver en retrait, derrière le contenu.
+ *
+ * L'image déborde volontairement du cadre (voir sa hauteur dans le Blade) :
+ * sans cette marge, son décalage vers le bas laisserait un vide en haut.
  */
-// Amplitudes dissociées : l'écran étant bien plus large que haut, une même
-// valeur sur les deux axes donne un mouvement horizontal qui paraît timide.
-const AMPLITUDE_X = 18; // décalage horizontal maximal, en pixels
-const AMPLITUDE_Y = 6; // décalage vertical maximal, en pixels
-const SMOOTHING = 0.08; // plus la valeur est basse, plus le suivi est doux
+const DEPTH = 0.3; // 0 = solidaire de la page, 1 = totalement immobile
 
 function initHeroParallax() {
     const image = document.querySelector('[data-parallax]');
@@ -23,31 +22,34 @@ function initHeroParallax() {
         return;
     }
 
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
+    const hero = image.closest('section');
+    let ticking = false;
 
-    window.addEventListener('mousemove', (event) => {
-        // Position du curseur ramenée dans l'intervalle [-1, 1] depuis le centre de la fenêtre.
-        const ratioX = event.clientX / window.innerWidth - 0.5;
-        const ratioY = event.clientY / window.innerHeight - 0.5;
+    function update() {
+        const scrolled = window.scrollY;
 
-        // Signe négatif : l'image part à l'opposé du curseur.
-        targetX = -ratioX * AMPLITUDE_X * 2;
-        targetY = -ratioY * AMPLITUDE_Y * 2;
-    });
+        // Une fois le hero dépassé, l'image est hors champ : inutile de la déplacer.
+        if (scrolled <= hero.offsetHeight) {
+            image.style.transform = `translate3d(0, ${scrolled * DEPTH}px, 0)`;
+        }
 
-    function render() {
-        currentX += (targetX - currentX) * SMOOTHING;
-        currentY += (targetY - currentY) * SMOOTHING;
-
-        image.style.transform = `scale(1.08) translate3d(${currentX}px, ${currentY}px, 0)`;
-
-        requestAnimationFrame(render);
+        ticking = false;
     }
 
-    render();
+    // Le scroll se déclenche bien plus souvent que le rafraîchissement de
+    // l'écran : on ne recalcule qu'une fois par image affichée.
+    window.addEventListener(
+        'scroll',
+        () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        },
+        { passive: true },
+    );
+
+    update();
 }
 
 initHeroParallax();
