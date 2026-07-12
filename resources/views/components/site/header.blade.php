@@ -13,9 +13,13 @@
     {{-- Barre supérieure : logo + contact --}}
     <div class="bg-white">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 lg:px-8">
-            <a href="/" class="flex items-center gap-2 font-bold text-brand-900">
-                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-800 text-sm font-bold text-white">CC</span>
-                <span>Conseils Coordination</span>
+            {{-- Le logo contient déjà le nom de la société : pas de texte à côté. --}}
+            <a href="/" class="shrink-0">
+                <img
+                    src="{{ asset('images/logos/Logo-CC.png') }}"
+                    alt="Conseils Coordination"
+                    class="h-14 w-auto"
+                >
             </a>
 
             <div class="flex items-center gap-5">
