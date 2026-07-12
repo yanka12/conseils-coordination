@@ -50,28 +50,32 @@
             </div>
         </div>
 
-        {{-- mr décolle les cartes du bord droit sans rompre leur alignement entre elles. --}}
-        <div class="flex flex-col gap-10 lg:items-end lg:mr-10">
+        {{-- Trois dispositions selon la largeur :
+             - petit écran : empilées (une colonne), faute de place ;
+             - tablette : en ligne sur trois colonnes, sinon le hero devient interminable ;
+             - desktop : de nouveau empilées, mais dans la colonne de droite, à côté du texte.
+             mr décolle les cartes du bord droit sans rompre leur alignement entre elles. --}}
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-1 lg:justify-items-end lg:gap-10 lg:mr-10">
             <x-site.stat-card
                 value="17+"
                 label="Années d'expérience"
                 icon="shield"
                 variant="dark"
-                class="w-full sm:w-64"
+                class="w-full lg:w-64"
             />
             <x-site.stat-card
                 value="2"
                 label="Coordonnateurs CSPS"
                 icon="helmet"
                 variant="medium"
-                class="w-full sm:w-64"
+                class="w-full lg:w-64"
             />
             <x-site.stat-card
                 value="28M€+"
                 label="Projets coordonnés"
                 icon="document"
                 variant="light"
-                class="w-full sm:w-64"
+                class="w-full lg:w-64"
             />
         </div>
     </div>
