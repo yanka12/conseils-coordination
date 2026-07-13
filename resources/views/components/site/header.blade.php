@@ -7,11 +7,13 @@
         '#clients' => 'Nos clients',
         '#contact' => 'Contactez-nous',
     ];
-
-    $phone = '06.77.76.28.24';
 @endphp
 
-<header class="sticky top-0 z-40">
+{{-- Le header s'escamote au défilement vers le bas et revient au défilement vers le haut. --}}
+<header
+    data-site-header
+    class="sticky top-0 z-40 transition-transform duration-300 ease-out"
+>
     {{-- Barre supérieure : logo, contact, et le bouton du menu sur mobile --}}
     <div class="bg-white">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 lg:px-8">
@@ -32,14 +34,6 @@
             </a>
 
             <div class="flex shrink-0 items-center gap-5">
-                <a href="tel:{{ str_replace('.', '', $phone) }}" class="hidden text-sm font-semibold text-brand-900 sm:inline">
-                    {{ $phone }}
-                </a>
-
-                <x-ui.button href="#contact" variant="primary" class="hidden !px-4 !py-2 text-sm lg:inline-flex">
-                    Nous contacter
-                </x-ui.button>
-
                 {{-- Bouton hamburger : les deux barres pivotent en croix à l'ouverture. --}}
                 <button
                     type="button"
@@ -71,7 +65,12 @@
         </ul>
     </nav>
 
-    {{-- Panneau mobile : glisse depuis la droite, occupe tout l'écran --}}
+    </header>
+
+{{-- Panneau mobile : glisse depuis la droite, occupe tout l'écran.
+     Volontairement hors du <header> : celui-ci reçoit un transform quand il s'escamote,
+     et un ancêtre transformé fait qu'un descendant « fixed » se positionne par rapport à
+     lui plutôt que par rapport à l'écran. Le panneau serait alors emporté avec le header. --}}
     <div
         id="menu-mobile"
         data-nav-panel
@@ -117,16 +116,5 @@
                     @endforeach
                 </ul>
             </nav>
-
-            <div class="nav-item space-y-4" style="--i: {{ count($links) }}">
-                <a href="tel:{{ str_replace('.', '', $phone) }}" class="block text-lg font-bold text-white">
-                    {{ $phone }}
-                </a>
-
-                <x-ui.button href="#contact" data-nav-link variant="secondary" class="w-full">
-                    Nous contacter
-                </x-ui.button>
-            </div>
         </div>
     </div>
-</header>

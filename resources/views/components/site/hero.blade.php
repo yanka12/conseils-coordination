@@ -50,7 +50,7 @@
                     Demander un devis
                 </x-ui.button>
                 <x-ui.button href="#exigence" variant="outline">
-                    Nos réalisations
+                    Nos ouvrages
                 </x-ui.button>
             </div>
         </div>

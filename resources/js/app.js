@@ -125,5 +125,55 @@ function initMobileNav() {
     });
 }
 
+/**
+ * Header escamotable : il disparaît vers le haut quand on descend, revient dès
+ * qu'on remonte.
+ */
+function initHeaderAutoHide() {
+    const header = document.querySelector('[data-site-header]');
+    const panel = document.querySelector('[data-nav-panel]');
+
+    if (!header) {
+        return;
+    }
+
+    // En deçà, un simple tremblement du doigt ferait clignoter le header.
+    const THRESHOLD = 6;
+
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    function update() {
+        const y = window.scrollY;
+        const delta = y - lastY;
+
+        // Tant que le menu est ouvert, le header doit rester visible : c'est là que
+        // se trouve la croix de fermeture.
+        const menuOpen = panel && panel.dataset.open === 'true';
+
+        // Près du sommet, on l'affiche toujours : l'escamoter là n'aurait aucun sens.
+        if (menuOpen || y <= header.offsetHeight) {
+            header.classList.remove('-translate-y-full');
+        } else if (Math.abs(delta) > THRESHOLD) {
+            header.classList.toggle('-translate-y-full', delta > 0);
+        }
+
+        lastY = y;
+        ticking = false;
+    }
+
+    window.addEventListener(
+        'scroll',
+        () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        },
+        { passive: true },
+    );
+}
+
 initHeroParallax();
 initMobileNav();
+initHeaderAutoHide();
