@@ -15,8 +15,11 @@
                     <img
                         src="{{ asset('images/logos-clients/' . $logo) }}"
                         alt=""
+                        width="150"
+                        height="150"
                         loading="lazy"
-                        {{-- La seconde copie ne sert qu'au rebouclage : la masquer aux lecteurs d'écran. --}}
+                        {{-- Logos décoratifs, et la piste est dupliquée pour la boucle : les
+                             annoncer reviendrait à réciter deux fois la même liste. --}}
                         aria-hidden="true"
                         class="h-16 w-auto opacity-60 transition duration-300 hover:opacity-100"
                     >

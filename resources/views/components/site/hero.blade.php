@@ -3,10 +3,16 @@
 <section class="relative flex min-h-svh items-center overflow-hidden text-white">
     {{-- Photo de fond. Elle est plus haute que la section et remonte d'autant : cette réserve
          est ce que la parallaxe révèle en la faisant redescendre au fil du scroll. --}}
+    {{-- fetchpriority : c'est l'image la plus grande de la page au chargement, donc celle que
+         Google mesure pour le LCP. Elle doit partir en premier. Jamais en lazy : elle est
+         visible d'emblée. --}}
     <img
         data-parallax
         src="{{ asset('images/hero.webp') }}"
         alt="Grue et ferraillage sur un chantier de gros œuvre"
+        width="1900"
+        height="1131"
+        fetchpriority="high"
         class="absolute -top-[30%] left-0 h-[130%] w-full object-cover will-change-transform"
     >
 

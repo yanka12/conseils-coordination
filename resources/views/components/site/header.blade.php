@@ -24,9 +24,13 @@
                  Pages, où « / » renverrait à la racine du domaine, hors du site. Une seule ligne
                  à changer le jour de la mise en production. --}}
             <a href="{{ config('app.url') }}" class="flex min-w-0 items-center gap-2 sm:gap-3">
+                {{-- alt vide : le nom de la société est déjà écrit à côté. Le répéter ferait
+                     lire deux fois la même chose à un lecteur d'écran. --}}
                 <img
                     src="{{ asset('images/logos/Logo-CC-mark.png') }}"
                     alt=""
+                    width="2076"
+                    height="1199"
                     class="h-7 w-auto shrink-0 sm:h-9"
                 >
                 <span class="truncate text-sm font-bold text-brand-900 lg:text-base">
@@ -92,6 +96,8 @@
                     <img
                         src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"
                         alt="Conseils Coordination"
+                        width="2076"
+                        height="1199"
                         class="h-8 w-auto"
                     >
                 </a>

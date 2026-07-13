@@ -14,6 +14,9 @@
                 <img
                     src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"
                     alt="Conseils Coordination"
+                    width="2076"
+                    height="1199"
+                    loading="lazy"
                     class="mx-auto w-40"
                 >
 

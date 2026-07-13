@@ -18,6 +18,12 @@ PHP="${PHP_BIN:-php}"
 PORT="${PORT:-8123}"
 ORIGIN="http://127.0.0.1:${PORT}"
 
+# L'adresse publique vient de APP_URL : une seule source de vérité, partagée avec les
+# balises canonical et Open Graph du gabarit.
+SITE_URL=$("$PHP" -r 'require "vendor/autoload.php"; $a = require "bootstrap/app.php"; $a->make("Illuminate\Contracts\Console\Kernel")->bootstrap(); echo rtrim(config("app.url"), "/");')
+
+echo "==> Site : ${SITE_URL}"
+
 echo "==> Compilation des assets"
 npm run build
 
@@ -47,17 +53,38 @@ fi
 # où des chemins commençant par « / » pointeraient à la racine du domaine.
 curl -s "$ORIGIN" | sed "s|${ORIGIN}/||g" > dist/index.html
 
-# Préversion : on ne veut pas que le site remonte dans les moteurs de recherche.
-sed -i 's|</title>|</title>\n        <meta name="robots" content="noindex, nofollow">|' dist/index.html
-
 echo "==> Copie des fichiers publics"
 cp -r public/build dist/build
 cp -r public/images dist/images
 cp public/favicon.ico dist/
 
-printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
-
 # Sans ce fichier, GitHub Pages fait passer le dossier par Jekyll.
 touch dist/.nojekyll
+
+# Le référencement est prêt côté balises, mais reste désarmé tant que le site est une
+# préversion : l'indexer créerait du contenu dupliqué le jour de la bascule sur le vrai
+# domaine, et Google pénalise cela. Passer PREVIEW=0 pour ouvrir l'indexation.
+PREVIEW="${PREVIEW:-1}"
+
+if [ "$PREVIEW" = "1" ]; then
+    echo "==> Préversion : indexation bloquée"
+    sed -i 's|</title>|</title>\n        <meta name="robots" content="noindex, nofollow">|' dist/index.html
+    printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+else
+    echo "==> Production : indexation ouverte"
+    printf 'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$SITE_URL" > dist/robots.txt
+
+    cat > dist/sitemap.xml <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>${SITE_URL}/</loc>
+        <lastmod>$(date +%F)</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>
+XML
+fi
 
 echo "==> Terminé — dist/ prêt ($(du -sh dist | cut -f1))"

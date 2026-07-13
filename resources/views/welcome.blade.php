@@ -1,7 +1,7 @@
 <x-layout>
     <x-site.header />
 
-    <main>
+    <main id="contenu">
         <x-site.hero />
 
         {{-- Notre exigence --}}
@@ -104,6 +104,8 @@
                         <img
                             src="{{ asset('images/casqueCC.png') }}"
                             alt="Casque de chantier aux couleurs de Conseils Coordination"
+                            width="500"
+                            height="500"
                             loading="lazy"
                             class="w-full max-w-xs"
                         >
