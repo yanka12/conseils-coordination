@@ -14,12 +14,17 @@
         'info' => '<circle cx="12" cy="12" r="9" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 11v5m0-8h.01" />',
     ];
 
-    $card = $variant === 'dark'
-        ? 'border-brand-900/60 bg-brand-900/80'
-        : 'border-white/15 bg-white/10';
+    // « plain » : sans fond ni bordure. La bordure reste, en transparent, et le
+    // rembourrage est conservé : la carte occupe ainsi exactement la même place.
+    // Le flou d'arrière-plan est retiré, sinon il resterait visible sans fond.
+    $card = match ($variant) {
+        'dark' => 'border-brand-900/60 bg-brand-900/80 backdrop-blur-sm',
+        'plain' => 'border-transparent',
+        default => 'border-white/15 bg-white/10 backdrop-blur-sm',
+    };
 @endphp
 
-<div {{ $attributes->merge(['class' => "rounded-xl border $card px-5 py-4 backdrop-blur-sm"]) }}>
+<div {{ $attributes->merge(['class' => "rounded-xl border $card px-5 py-4"]) }}>
     <div class="flex gap-3">
         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white">
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">

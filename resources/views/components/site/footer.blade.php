@@ -30,7 +30,7 @@
 
         {{-- Colonne 2 : coordonnées et mentions légales --}}
         <div class="space-y-3">
-            <x-site.info-card title="Siège social" icon="pin">
+            <x-site.info-card title="Siège social" icon="pin" variant="plain">
                 <p class="font-semibold text-white">20 rue Jean Rieux - 81000 Albi</p>
             </x-site.info-card>
 
