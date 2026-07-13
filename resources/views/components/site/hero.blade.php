@@ -10,8 +10,11 @@
         class="absolute -top-[30%] left-0 h-[130%] w-full object-cover will-change-transform"
     >
 
-    {{-- Calque de marque : opaque à gauche pour la lisibilité du texte, transparent à droite pour laisser voir la photo --}}
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/85 to-transparent"></div>
+    {{-- Calque de marque. En desktop le texte tient dans la colonne de gauche : un dégradé
+         horizontal suffit, et la photo reste visible à droite. En mobile le texte occupe toute
+         la largeur, où ce même dégradé le laisserait sur la photo nue : le calque devient donc
+         uniforme. --}}
+    <div class="absolute inset-0 bg-brand-900/80 lg:bg-transparent lg:bg-gradient-to-r lg:from-brand-900 lg:via-brand-900/85 lg:to-transparent"></div>
 
     {{-- Colonne de gauche élargie : à parts égales, « chantiers » basculait sur une 3e ligne. --}}
     <div class="relative mx-auto grid w-full max-w-7xl gap-10 px-6 py-14 sm:py-20 lg:grid-cols-[1.6fr_1fr] lg:items-center lg:gap-12 lg:px-8">
@@ -27,7 +30,7 @@
                 de la santé sur vos chantiers
             </h1>
 
-            <div class="mt-6 max-w-2xl space-y-4 text-xs leading-relaxed text-white/85 sm:text-sm">
+            <div class="mt-6 max-w-2xl space-y-4 text-sm leading-relaxed text-white/90">
                 <p>
                     La SARL Conseils Coordination est une société spécialisée en
                     <strong class="font-semibold text-white">coordination SPS</strong>,
