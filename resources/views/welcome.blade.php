@@ -5,7 +5,7 @@
         <x-site.hero />
 
         {{-- Notre exigence --}}
-        <section id="exigence" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
+        <section id="exigence" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 lg:px-8">
             <x-ui.section-heading title="Notre exigence" align="center" max-width="max-w-none">
                 {{-- Titre centré, mais paragraphe laissé au fer à gauche : centré, il serait
                      illisible sur toute la largeur de la grille. --}}
@@ -17,7 +17,8 @@
                 </p>
             </x-ui.section-heading>
 
-            <div class="mt-14 grid gap-6 sm:grid-cols-2">
+            {{-- mt-4 : le même écart que celui qui sépare le titre de ce texte (section-heading). --}}
+            <div class="mt-4 grid gap-6 sm:grid-cols-2">
                 <div class="space-y-6">
                     <x-ui.photo
                         src="images/chantiers/site-seveso.png"
@@ -60,7 +61,7 @@
         </section>
 
         {{-- Méthodologie --}}
-        <section id="methodologie" class="bg-slate-50 py-14 sm:py-20">
+        <section id="methodologie" class="bg-slate-50 py-10 sm:py-14">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
                     title="Une méthodologie éprouvée<br>pour votre sécurité"
@@ -71,7 +72,7 @@
                 {{-- Grille resserrée : à pleine largeur, les cartes seraient plus larges que hautes.
                      Les cercles numérotés débordant en haut, gap-y est généreux pour qu'ils ne
                      chevauchent pas la rangée précédente. --}}
-                <div class="mx-auto mt-20 grid max-w-4xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                     <x-site.methodology-step
                         number="1"
                         title="Analyse approfondie du site et de son environnement"
@@ -101,7 +102,7 @@
                     {{-- Sixième case : l'illustration remplace une carte, comme sur la maquette. --}}
                     <div class="flex items-center justify-center">
                         <img
-                            src="{{ asset('images/casque.png') }}"
+                            src="{{ asset('images/casqueCC.png') }}"
                             alt="Casque de chantier aux couleurs de Conseils Coordination"
                             loading="lazy"
                             class="w-full max-w-xs"
@@ -112,7 +113,7 @@
         </section>
 
         {{-- Missions principales --}}
-        <section id="missions" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
+        <section id="missions" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 lg:px-8">
             <x-ui.section-heading
                 title="Missions principales assurées"
                 description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
@@ -144,7 +145,7 @@
 
             {{-- grid-flow-col + 4 rangées : les cartes descendent la 1re colonne avant de passer à la 2de,
                  donc la coche suit le même chemin que l'ordre de lecture. --}}
-            <ul class="mt-12 grid gap-4 sm:grid-flow-col sm:grid-rows-4">
+            <ul class="mt-10 grid gap-4 sm:grid-flow-col sm:grid-rows-4">
                 @foreach ($missions as $mission)
                     <x-site.mission-item :delay="$loop->index * $slot" :duration="$cycle">
                         {!! $mission !!}
@@ -154,7 +155,7 @@
         </section>
 
         {{-- Experts --}}
-        <section id="experts" class="bg-slate-50 py-14 sm:py-20">
+        <section id="experts" class="bg-slate-50 py-10 sm:py-14">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <x-ui.section-heading
                     eyebrow="L'équipe"
@@ -164,7 +165,7 @@
                     class="mx-auto"
                 />
 
-                <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-3xl lg:mx-auto">
+                <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-3xl lg:mx-auto">
                     <x-site.expert-card
                         name="Didier Ziera"
                         role="Gérant, CC Conseils Coordination"
@@ -183,7 +184,7 @@
 
         {{-- CTA. Porte l'ancre « clients » : atterrir directement sur le carrousel, sans
              titre au-dessus, ne dit pas au visiteur où il vient d'arriver. --}}
-        <section id="clients" class="mx-auto max-w-7xl px-6 py-14 sm:py-20 text-center lg:px-8">
+        <section id="clients" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 text-center lg:px-8">
             <x-ui.section-heading
                 eyebrow="Votre projet"
                 title="Parlons de votre projet"
@@ -194,7 +195,7 @@
         </section>
 
         {{-- Clients --}}
-        <section class="border-t border-slate-100 py-10 sm:py-14">
+        <section class="border-t border-slate-100 py-8 sm:py-10">
             <x-site.logo-carousel />
         </section>
     </main>
