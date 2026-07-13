@@ -1,11 +1,12 @@
 @php
+    // « Contactez-nous » est une action, pas une section : il est traité à part pour
+    // apparaître en bouton, et non comme un lien de navigation.
     $links = [
         '#exigence' => 'Notre exigence',
         '#methodologie' => 'Notre méthodologie',
         '#missions' => 'Nos missions',
         '#experts' => 'Nos experts',
         '#clients' => 'Nos clients',
-        '#contact' => 'Contactez-nous',
     ];
 @endphp
 
@@ -28,7 +29,7 @@
                     alt=""
                     class="h-7 w-auto shrink-0 sm:h-9"
                 >
-                <span class="truncate text-sm font-bold text-brand-900 sm:text-base lg:text-lg">
+                <span class="truncate text-sm font-bold text-brand-900 lg:text-base">
                     Conseils Coordination
                 </span>
             </a>
@@ -54,7 +55,7 @@
 
     {{-- Barre de navigation : desktop uniquement, le mobile passe par le panneau --}}
     <nav class="hidden bg-brand-800 text-white lg:block">
-        <ul class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 text-sm font-medium lg:px-8">
+        <ul class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2.5 text-sm font-medium lg:px-8">
             @foreach ($links as $href => $label)
                 <li>
                     <a href="{{ $href }}" class="whitespace-nowrap text-white/80 transition hover:text-white">
@@ -62,6 +63,12 @@
                     </a>
                 </li>
             @endforeach
+
+            <li>
+                <x-ui.button href="#contact" variant="secondary" class="!px-4 !py-1.5 text-sm">
+                    Contactez-nous
+                </x-ui.button>
+            </li>
         </ul>
     </nav>
 
@@ -115,6 +122,13 @@
                         </li>
                     @endforeach
                 </ul>
+
+                {{-- Même traitement qu'en desktop : un bouton, pas un lien de navigation. --}}
+                <div class="nav-item mt-10" style="--i: {{ count($links) }}">
+                    <x-ui.button href="#contact" data-nav-link variant="secondary" class="w-full">
+                        Contactez-nous
+                    </x-ui.button>
+                </div>
             </nav>
         </div>
     </div>
