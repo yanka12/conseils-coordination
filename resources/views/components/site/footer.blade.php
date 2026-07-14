@@ -11,14 +11,12 @@
              sur les boutons, et non sur la colonne entière. --}}
         <div class="flex flex-col items-center justify-center lg:items-start">
             <div class="flex w-full max-w-56 flex-col gap-8">
-                <img
-                    src="{{ asset('images/logos/Logo-CC-mark-clair.png') }}"
+                <x-ui.img
+                    src="images/logos/Logo-CC-mark-clair.png"
                     alt="Conseils Coordination"
-                    width="2076"
-                    height="1199"
                     loading="lazy"
                     class="mx-auto w-40"
-                >
+                />
 
                 <div class="flex flex-col gap-3">
                     <x-ui.button href="tel:0677762824" variant="light">

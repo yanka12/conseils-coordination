@@ -101,14 +101,12 @@
 
                     {{-- Sixième case : l'illustration remplace une carte, comme sur la maquette. --}}
                     <div class="flex items-center justify-center">
-                        <img
-                            src="{{ asset('images/casqueCC.png') }}"
+                        <x-ui.img
+                            src="images/casqueCC.png"
                             alt="Casque de chantier aux couleurs de Conseils Coordination"
-                            width="500"
-                            height="500"
                             loading="lazy"
                             class="w-full max-w-xs"
-                        >
+                        />
                     </div>
                 </div>
             </div>
