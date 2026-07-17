@@ -33,8 +33,8 @@
         ],
         'geo' => [
             '@type' => 'GeoCoordinates',
-            'latitude' => 43.9121894,
-            'longitude' => 2.1524267,
+            'latitude' => 43.9100726,
+            'longitude' => 2.1602874,
         ],
         'areaServed' => [
             ['@type' => 'AdministrativeArea', 'name' => 'Occitanie'],
