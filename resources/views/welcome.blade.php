@@ -125,7 +125,7 @@
                 // Le gras cible les termes métier réellement recherchés (PGC, DIUO, PPSPS…),
                 // à raison d'un ou deux par mission pour ne pas diluer le signal.
                 $missions = [
-                    'Analyse des offres des entreprises (<strong>conformité au PGC</strong>).',
+                    'Analyse des offres des entreprises sur demande (<strong>conformité au PGC</strong>).',
                     '<strong>Déclaration préalable</strong> transmise au maître d\'ouvrage.',
                     'Élaboration, mise à jour et diffusion du <strong>PGC SPS</strong> (Plan Général de Coordination).',
                     'Ouverture et tenue du <strong>registre journal SPS</strong> : inspections communes, visites de chantier, courriers, comptes rendus.',
@@ -167,23 +167,25 @@
 
                 <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-3xl lg:mx-auto">
                     <x-site.expert-card
-                        name="Didier Ziera"
+                        name="Didier Zieba"
                         role="Gérant, CC Conseils Coordination"
                         phone="06.77.76.28.24"
                         email="contact@conseils-coordination.fr"
+                        photo="images/experts/didier.webp"
                     />
                     <x-site.expert-card
                         name="Pascale Perez"
                         role="Coordinatrice SPS, CC Conseils Coordination"
                         phone="07.69.60.89.59"
                         email="contact@conseils-coordination.fr"
+                        photo="images/experts/pascale.webp"
                     />
                 </div>
             </div>
         </section>
 
-        {{-- CTA. Porte l'ancre « clients » : atterrir directement sur le carrousel, sans
-             titre au-dessus, ne dit pas au visiteur où il vient d'arriver. --}}
+        {{-- CTA. Le carrousel de clients a rejoint le hero (preuve sociale dès le premier
+             écran) ; cette section reste l'invitation finale à prendre contact. --}}
         <section id="clients" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 text-center lg:px-8">
             <x-ui.section-heading
                 eyebrow="Votre projet"
@@ -192,11 +194,6 @@
                 align="center"
                 class="mx-auto"
             />
-        </section>
-
-        {{-- Clients --}}
-        <section class="border-t border-slate-100 py-8 sm:py-10">
-            <x-site.logo-carousel />
         </section>
     </main>
 

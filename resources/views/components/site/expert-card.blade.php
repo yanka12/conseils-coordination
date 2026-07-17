@@ -3,10 +3,22 @@
     'role',
     'phone',
     'email',
+    'photo' => null,
 ])
 
 <div {{ $attributes->merge(['class' => 'overflow-hidden rounded-lg bg-brand-700 text-white shadow-sm']) }}>
-    <x-ui.placeholder-image :label="$name" icon="portrait" aspect="aspect-[4/3]" class="rounded-none" />
+    @if ($photo)
+        {{-- Portrait cadré en 4/3 comme le placeholder qu'il remplace : la carte garde
+             la même hauteur, qu'il y ait une photo ou non. --}}
+        <x-ui.img
+            :src="$photo"
+            :alt="$name"
+            loading="lazy"
+            class="aspect-[4/3] w-full object-cover"
+        />
+    @else
+        <x-ui.placeholder-image :label="$name" icon="portrait" aspect="aspect-[4/3]" class="rounded-none" />
+    @endif
 
     <div class="p-6">
         <h3 class="text-lg font-bold">{{ $name }}</h3>

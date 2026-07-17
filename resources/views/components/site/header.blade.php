@@ -6,7 +6,6 @@
         '#methodologie' => 'Notre méthodologie',
         '#missions' => 'Nos missions',
         '#experts' => 'Nos experts',
-        '#clients' => 'Nos clients',
     ];
 @endphp
 

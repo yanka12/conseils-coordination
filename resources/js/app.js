@@ -126,6 +126,36 @@ function initMobileNav() {
 }
 
 /**
+ * Hauteur du header exposée en variable CSS.
+ *
+ * Le header est collant, donc en flux : le hero placé en dessous doit mesurer
+ * « fenêtre moins header » pour tenir en entier sans défiler en desktop. Sa
+ * hauteur varie (une barre sur mobile, deux en desktop ; les polices peuvent
+ * aussi la modifier au chargement), d'où une mesure vivante plutôt qu'en dur.
+ */
+function initHeaderHeightVar() {
+    const header = document.querySelector('[data-site-header]');
+
+    if (!header) {
+        return;
+    }
+
+    const apply = () => {
+        document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    };
+
+    apply();
+
+    // Réagit au changement de largeur (bascule 1 ↔ 2 barres) comme au chargement
+    // tardif des polices, tous deux capturés par la taille de l'élément observé.
+    if (window.ResizeObserver) {
+        new ResizeObserver(apply).observe(header);
+    } else {
+        window.addEventListener('resize', apply, { passive: true });
+    }
+}
+
+/**
  * Header escamotable : il disparaît vers le haut quand on descend, revient dès
  * qu'on remonte.
  */
@@ -174,6 +204,39 @@ function initHeaderAutoHide() {
     );
 }
 
+/**
+ * Boutons « copier dans le presse-papier ».
+ *
+ * Chaque bouton porte la valeur à copier dans data-copy. Après copie, l'icône
+ * bascule en coche et une bulle « Copié ! » apparaît deux secondes.
+ * navigator.clipboard suffit : le site est servi en https, contexte sécurisé.
+ */
+function initCopyToClipboard() {
+    document.querySelectorAll('[data-copy]').forEach((button) => {
+        const icon = button.querySelector('[data-copy-icon]');
+        const done = button.querySelector('[data-copy-done]');
+        const toast = button.querySelector('[data-copy-toast]');
+        let timer;
+
+        button.addEventListener('click', async () => {
+            await navigator.clipboard.writeText(button.dataset.copy);
+
+            icon.classList.add('hidden');
+            done.classList.remove('hidden');
+            toast.style.opacity = '1';
+
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                icon.classList.remove('hidden');
+                done.classList.add('hidden');
+                toast.style.opacity = '0';
+            }, 2000);
+        });
+    });
+}
+
 initHeroParallax();
 initMobileNav();
+initHeaderHeightVar();
 initHeaderAutoHide();
+initCopyToClipboard();
