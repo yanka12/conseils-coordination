@@ -1,11 +1,3 @@
-@php
-    // Les logos sont listés depuis le disque : déposer un fichier suffit à l'ajouter.
-    // Tri naturel pour que 10.png suive 9.png et non 1.png.
-    $files = glob(public_path('images/logos-clients/*.png')) ?: [];
-    natsort($files);
-    $logos = array_map('basename', $files);
-@endphp
-
 @if ($logos)
     <div class="marquee overflow-hidden">
         {{-- La piste est dupliquée : voir l'explication du -50 % dans app.css. --}}

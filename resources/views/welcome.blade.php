@@ -50,11 +50,16 @@
                         caption="Aéroport de Rodez"
                         class="shadow-lg"
                     />
-                    <x-ui.photo
-                        src="images/chantiers/genie-civil.png"
-                        alt="Pose d'un tablier de pont par grue en vallée"
-                        caption="Ouvrage de génie civil"
+                    {{-- Carrousel : même cadre qu'une photo, mais les vues défilent.
+                         Photos de chantier existantes en placeholder de test. --}}
+                    <x-ui.photo-carousel
                         class="shadow-lg"
+                        :photos="[
+                            ['src' => 'images/chantiers/genie-civil.png', 'alt' => 'Pose d\'un tablier de pont par grue en vallée', 'caption' => 'Ouvrage de génie civil'],
+                            ['src' => 'images/chantiers/site-seveso.png', 'alt' => 'Site industriel SEVESO', 'caption' => 'Site SEVESO Total'],
+                            ['src' => 'images/chantiers/pont-albi.png', 'alt' => 'Échafaudages sur le vieux pont d\'Albi', 'caption' => 'Le vieux pont d\'Albi'],
+                            ['src' => 'images/chantiers/aeroport-rodez.png', 'alt' => 'Vue aérienne de l\'aéroport de Rodez', 'caption' => 'Aéroport de Rodez'],
+                        ]"
                     />
                 </div>
             </div>
@@ -113,46 +118,7 @@
         </section>
 
         {{-- Missions principales --}}
-        <section id="missions" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 lg:px-8">
-            <x-ui.section-heading
-                title="Missions principales assurées"
-                description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
-                align="center"
-                max-width="max-w-3xl"
-            />
-
-            @php
-                // Le gras cible les termes métier réellement recherchés (PGC, DIUO, PPSPS…),
-                // à raison d'un ou deux par mission pour ne pas diluer le signal.
-                $missions = [
-                    'Analyse des offres des entreprises sur demande (<strong>conformité au PGC</strong>).',
-                    '<strong>Déclaration préalable</strong> transmise au maître d\'ouvrage.',
-                    'Élaboration, mise à jour et diffusion du <strong>PGC SPS</strong> (Plan Général de Coordination).',
-                    'Ouverture et tenue du <strong>registre journal SPS</strong> : inspections communes, visites de chantier, courriers, comptes rendus.',
-                    'Organisation et animation des <strong>inspections communes</strong>, analyse des <strong>PPSPS</strong> avant autorisation de démarrage des travaux.',
-                    'Participation aux réunions de chantier, <strong>visites inopinées</strong>, <strong>vacations de sécurité</strong>.',
-                    'Gestion des <strong>situations accidentelles</strong> (analyse des causes, sécurisation, information MO/MOE).',
-                    'Élaboration et remise du <strong>DIUO</strong> (Dossier d\'Intervention Ultérieure sur l\'Ouvrage).',
-                ];
-            @endphp
-
-            @php
-                // Chaque carte occupe un créneau exclusif : une seule est cochée à la fois,
-                // et le cycle complet reboucle une fois la dernière atteinte.
-                $slot = 2400;
-                $cycle = $slot * count($missions);
-            @endphp
-
-            {{-- grid-flow-col + 4 rangées : les cartes descendent la 1re colonne avant de passer à la 2de,
-                 donc la coche suit le même chemin que l'ordre de lecture. --}}
-            <ul class="mt-10 grid gap-4 sm:grid-flow-col sm:grid-rows-4">
-                @foreach ($missions as $mission)
-                    <x-site.mission-item :delay="$loop->index * $slot" :duration="$cycle">
-                        {!! $mission !!}
-                    </x-site.mission-item>
-                @endforeach
-            </ul>
-        </section>
+        <x-site.missions />
 
         {{-- Experts --}}
         <section id="experts" class="bg-slate-50 py-10 sm:py-14">

@@ -2,6 +2,9 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+/* Les classes CSS des composants class-based vivent désormais dans des chaînes
+   PHP : sans cette source, Tailwind ne les verrait pas et les purgerait. */
+@source '../../app/View/Components/**/*.php';
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -206,6 +209,35 @@ section[id] {
 
 @media (prefers-reduced-motion: reduce) {
     .marquee__track {
+        animation: none;
+    }
+}
+
+/*
+ * Carrousel vertical de photos : reprend le cadre de x-ui.photo (aspect fixe,
+ * coins arrondis, masque de légende), mais les vues défilent verticalement par
+ * paliers. La piste est absolue et plus haute que le cadre — une vue par photo,
+ * plus un doublon de la première pour reboucler sans saut, comme le marquee.
+ *
+ * Le nom et la durée de l'animation arrivent du composant par des variables ;
+ * les paliers eux-mêmes, qui dépendent du nombre de photos, y sont générés.
+ */
+.photo-carousel__track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    animation: var(--pc-name) var(--pc-duration) ease-in-out infinite;
+}
+
+.photo-carousel:hover .photo-carousel__track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .photo-carousel__track {
         animation: none;
     }
 }

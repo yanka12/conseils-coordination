@@ -1,16 +1,3 @@
-@props([
-    'src',
-    'alt',
-    'caption' => null,
-    'aspect' => 'aspect-[4/3]',
-])
-
-@php
-    // Dimensions lues sur le fichier : elles restent justes le jour où la photo est
-    // remplacée, là où des valeurs recopiées à la main finiraient par mentir.
-    [$width, $height] = @getimagesize(public_path($src)) ?: [null, null];
-@endphp
-
 <figure {{ $attributes->merge(['class' => "relative $aspect overflow-hidden rounded-lg"]) }}>
     <img
         src="{{ asset($src) }}"

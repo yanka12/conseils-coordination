@@ -1,14 +1,3 @@
-@php
-    // « Contactez-nous » est une action, pas une section : il est traité à part pour
-    // apparaître en bouton, et non comme un lien de navigation.
-    $links = [
-        '#exigence' => 'Notre exigence',
-        '#methodologie' => 'Notre méthodologie',
-        '#missions' => 'Nos missions',
-        '#experts' => 'Nos experts',
-    ];
-@endphp
-
 {{-- Le header s'escamote au défilement vers le bas et revient au défilement vers le haut. --}}
 <header
     data-site-header

@@ -1,54 +1,3 @@
-@props([
-    'title' => 'Coordonnateur SPS à Albi (81) — Conseils Coordination',
-    'description' => 'Coordination SPS en Occitanie depuis 2004. Coordonnateurs certifiés niveau 1, missions réalisées en interne : PGC, DIUO, inspections communes et visites de chantier.',
-])
-
-@php
-    $url = rtrim(config('app.url'), '/');
-    $image = $url . '/images/hero.webp';
-
-    // Fiche d'établissement. Google s'en sert pour le panneau de connaissance et les
-    // résultats locaux : c'est le levier le plus rentable pour une entreprise de service
-    // implantée sur un territoire.
-    $schema = [
-        '@context' => 'https://schema.org',
-        '@type' => 'ProfessionalService',
-        'name' => 'Conseils Coordination',
-        'legalName' => 'SARL Conseils Coordination',
-        'description' => $description,
-        'url' => $url,
-        'logo' => $url . '/images/logos/Logo-CC.png',
-        'image' => $image,
-        'telephone' => '+33677762824',
-        'email' => 'contact@conseils-coordination.fr',
-        'foundingDate' => '2004',
-        'vatID' => 'FR60479345886',
-        'address' => [
-            '@type' => 'PostalAddress',
-            'streetAddress' => '20 rue Jean Rieux',
-            'postalCode' => '81000',
-            'addressLocality' => 'Albi',
-            'addressRegion' => 'Occitanie',
-            'addressCountry' => 'FR',
-        ],
-        'geo' => [
-            '@type' => 'GeoCoordinates',
-            'latitude' => 43.9100726,
-            'longitude' => 2.1602874,
-        ],
-        'areaServed' => [
-            ['@type' => 'AdministrativeArea', 'name' => 'Occitanie'],
-        ],
-        'knowsAbout' => [
-            'Coordination SPS',
-            'Sécurité et Protection de la Santé',
-            'Plan Général de Coordination',
-            "Dossier d'Intervention Ultérieure sur l'Ouvrage",
-        ],
-        'founder' => ['@type' => 'Person', 'name' => 'Didier Zieba'],
-    ];
-@endphp
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -81,7 +30,7 @@
         <link rel="preload" as="image" href="{{ asset('images/hero.webp') }}" fetchpriority="high">
 
         <script type="application/ld+json">
-            {!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+            {!! $schemaJson !!}
         </script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])

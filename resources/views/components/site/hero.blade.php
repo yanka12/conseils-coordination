@@ -86,7 +86,7 @@
                     <x-site.stat-card
                         value="600+"
                         label="Missions réalisées"
-                        icon="document"
+                        icon="document-check"
                         variant="medium"
                         class="w-full lg:w-64"
                     />
