@@ -105,9 +105,6 @@
              écran. Fond clair car les logos (colorés) seraient illisibles sur le bleu du hero ;
              la bande va de bord à bord, son libellé et le carrousel restant centrés. --}}
         <div class="relative border-t border-white/10 bg-white/95 py-4 backdrop-blur-sm">
-            <p class="mx-auto max-w-7xl px-6 text-center text-[0.7rem] font-semibold tracking-[0.18em] text-slate-400 uppercase lg:px-8">
-                Ils nous font confiance
-            </p>
             <div class="mt-3">
                 <x-site.logo-carousel />
             </div>
