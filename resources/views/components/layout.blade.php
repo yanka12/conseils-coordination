@@ -23,7 +23,13 @@
 
         <meta name="theme-color" content="#141f33">
 
+        {{-- Icône d'onglet (favicon). Le .ico embarque les tailles 16 et 32 pour les
+             navigateurs anciens ; les PNG explicites servent les navigateurs récents,
+             et apple-touch-icon l'écran d'accueil iOS. --}}
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
         {{-- La photo du hero est le plus gros élément affiché au chargement : la précharger
              améliore directement le LCP, l'une des trois métriques Core Web Vitals. --}}
