@@ -21,29 +21,28 @@
                 // Tableau de correspondance des chantiers : à chaque image du dossier
                 // images/chantiers/ on associe son texte alternatif (alt, pour
                 // l'accessibilité et le référencement) et sa légende affichée (caption).
-                // Source unique alimentant le carrousel ci-dessous ; les composants
-                // lisent eux-mêmes les dimensions sur les fichiers.
+                // Source unique alimentant le carrousel ci-dessous ; les trois photos
+                // affichées en fixe (stade Paul-Lignon, silos, vieux pont d'Albi) n'y
+                // figurent pas, pour ne pas apparaître deux fois. Les composants lisent
+                // eux-mêmes les dimensions sur les fichiers.
                 $chantiers = [
-                    ['src' => 'images/chantiers/barrage-saint-geraud.png', 'alt' => 'Travaux de coordination sur le barrage de Saint-Géraud', 'caption' => 'Barrage de Saint-Géraud'],
-                    ['src' => 'images/chantiers/renov-vieux-pont-albi.png', 'alt' => 'Rénovation du vieux pont d\'Albi', 'caption' => 'Le vieux pont d\'Albi'],
-                    ['src' => 'images/chantiers/renov-pont-abli.png', 'alt' => 'Rénovation d\'un pont à Albi', 'caption' => 'Rénovation d\'un pont, Albi'],
-                    ['src' => 'images/chantiers/palais-berbie-albi.png', 'alt' => 'Chantier au palais de la Berbie à Albi', 'caption' => 'Palais de la Berbie, Albi'],
-                    ['src' => 'images/chantiers/stade-paul-lignon-rodez.png', 'alt' => 'Chantier du stade Paul-Lignon à Rodez', 'caption' => 'Stade Paul-Lignon, Rodez'],
-                    ['src' => 'images/chantiers/reservoir-eau-potable-ambialet.png', 'alt' => 'Réservoir d\'eau potable à Ambialet', 'caption' => 'Réservoir d\'eau potable, Ambialet'],
-                    ['src' => 'images/chantiers/terrassement-centre-enfouissement.png', 'alt' => 'Terrassement d\'un centre d\'enfouissement', 'caption' => 'Terrassement, centre d\'enfouissement'],
-                    ['src' => 'images/chantiers/construction-silos.png', 'alt' => 'Construction de silos', 'caption' => 'Construction de silos'],
-                    ['src' => 'images/chantiers/batiment-indus.png', 'alt' => 'Construction d\'un bâtiment industriel', 'caption' => 'Bâtiment industriel'],
-                    ['src' => 'images/chantiers/bardage-bat-indus.png', 'alt' => 'Pose du bardage d\'un bâtiment industriel', 'caption' => 'Bardage d\'un bâtiment industriel'],
-                    ['src' => 'images/chantiers/renforcement-chapente-bat-indus.png', 'alt' => 'Renforcement de la charpente d\'un bâtiment industriel', 'caption' => 'Renforcement de charpente'],
-                    ['src' => 'images/chantiers/desamiantage-bat-indus.png', 'alt' => 'Désamiantage d\'un bâtiment industriel', 'caption' => 'Désamiantage industriel'],
-                    ['src' => 'images/chantiers/construction-voile-beton-immeuble.png', 'alt' => 'Coulage d\'un voile en béton d\'un immeuble', 'caption' => 'Voile béton d\'immeuble'],
-                    ['src' => 'images/chantiers/immeuble-logements.png', 'alt' => 'Construction d\'un immeuble de logements', 'caption' => 'Immeuble de logements'],
-                    ['src' => 'images/chantiers/immeubles-pavillons-laprimaube.png', 'alt' => 'Immeubles et pavillons à La Primaube', 'caption' => 'Logements, La Primaube'],
-                    ['src' => 'images/chantiers/collège-couffouleux.png', 'alt' => 'Chantier du collège de Couffouleux', 'caption' => 'Collège de Couffouleux'],
-                    ['src' => 'images/chantiers/renovation-chateau.png', 'alt' => 'Rénovation d\'un château', 'caption' => 'Rénovation d\'un château'],
-                    ['src' => 'images/chantiers/refection-plafond-eglise.png', 'alt' => 'Réfection du plafond d\'une église', 'caption' => 'Réfection d\'un plafond d\'église'],
-                    ['src' => 'images/chantiers/mise-ensecurite-tourelle-eglise.png', 'alt' => 'Mise en sécurité de la tourelle d\'une église', 'caption' => 'Tourelle d\'église sécurisée'],
-                    ['src' => 'images/chantiers/mise-en-secu-passerelle.png', 'alt' => 'Mise en sécurité d\'une passerelle', 'caption' => 'Mise en sécurité d\'une passerelle'],
+                    ['src' => 'images/chantiers/barrage-saint-geraud.webp', 'alt' => 'Travaux de coordination sur le barrage de Saint-Géraud', 'caption' => 'Barrage de Saint-Géraud'],
+                    ['src' => 'images/chantiers/renov-pont-abli.webp', 'alt' => 'Rénovation d\'un pont à Albi', 'caption' => 'Rénovation d\'un pont, Albi'],
+                    ['src' => 'images/chantiers/palais-berbie-albi.webp', 'alt' => 'Chantier au palais de la Berbie à Albi', 'caption' => 'Palais de la Berbie, Albi'],
+                    ['src' => 'images/chantiers/reservoir-eau-potable-ambialet.webp', 'alt' => 'Réservoir d\'eau potable à Ambialet', 'caption' => 'Réservoir d\'eau potable, Ambialet'],
+                    ['src' => 'images/chantiers/terrassement-centre-enfouissement.webp', 'alt' => 'Terrassement d\'un centre d\'enfouissement', 'caption' => 'Terrassement, centre d\'enfouissement'],
+                    ['src' => 'images/chantiers/batiment-indus.webp', 'alt' => 'Construction d\'un bâtiment industriel', 'caption' => 'Bâtiment industriel'],
+                    ['src' => 'images/chantiers/bardage-bat-indus.webp', 'alt' => 'Pose du bardage d\'un bâtiment industriel', 'caption' => 'Bardage d\'un bâtiment industriel'],
+                    ['src' => 'images/chantiers/renforcement-chapente-bat-indus.webp', 'alt' => 'Renforcement de la charpente d\'un bâtiment industriel', 'caption' => 'Renforcement de charpente'],
+                    ['src' => 'images/chantiers/desamiantage-bat-indus.webp', 'alt' => 'Désamiantage d\'un bâtiment industriel', 'caption' => 'Désamiantage industriel'],
+                    ['src' => 'images/chantiers/construction-voile-beton-immeuble.webp', 'alt' => 'Coulage d\'un voile en béton d\'un immeuble', 'caption' => 'Voile béton d\'immeuble'],
+                    ['src' => 'images/chantiers/immeuble-logements.webp', 'alt' => 'Construction d\'un immeuble de logements', 'caption' => 'Immeuble de logements'],
+                    ['src' => 'images/chantiers/immeubles-pavillons-laprimaube.webp', 'alt' => 'Immeubles et pavillons à La Primaube', 'caption' => 'Logements, La Primaube'],
+                    ['src' => 'images/chantiers/collège-couffouleux.webp', 'alt' => 'Chantier du collège de Couffouleux', 'caption' => 'Collège de Couffouleux'],
+                    ['src' => 'images/chantiers/renovation-chateau.webp', 'alt' => 'Rénovation d\'un château', 'caption' => 'Rénovation d\'un château'],
+                    ['src' => 'images/chantiers/refection-plafond-eglise.webp', 'alt' => 'Réfection du plafond d\'une église', 'caption' => 'Réfection d\'un plafond d\'église'],
+                    ['src' => 'images/chantiers/mise-ensecurite-tourelle-eglise.webp', 'alt' => 'Mise en sécurité de la tourelle d\'une église', 'caption' => 'Tourelle d\'église sécurisée'],
+                    ['src' => 'images/chantiers/mise-en-secu-passerelle.webp', 'alt' => 'Mise en sécurité d\'une passerelle', 'caption' => 'Mise en sécurité d\'une passerelle'],
                 ];
             @endphp
 
@@ -51,15 +50,15 @@
             <div class="mt-4 grid gap-6 sm:grid-cols-2">
                 <div class="space-y-6">
                     <x-ui.photo
-                        src="images/chantiers/barrage-saint-geraud.png"
-                        alt="Travaux de coordination sur le barrage de Saint-Géraud"
-                        caption="Barrage de Saint-Géraud"
+                        src="images/chantiers/stade-paul-lignon-rodez.webp"
+                        alt="Chantier du stade Paul-Lignon à Rodez"
+                        caption="Stade Paul-Lignon, Rodez"
                         class="shadow-lg"
                     />
 
                     <div>
                         <x-ui.photo
-                            src="images/chantiers/renov-vieux-pont-albi.png"
+                            src="images/chantiers/renov-vieux-pont-albi.webp"
                             alt="Rénovation du vieux pont d'Albi"
                             caption="Le vieux pont d'Albi"
                             class="shadow-lg"
@@ -75,9 +74,9 @@
 
                 <div class="space-y-6 sm:pt-16">
                     <x-ui.photo
-                        src="images/chantiers/palais-berbie-albi.png"
-                        alt="Chantier au palais de la Berbie à Albi"
-                        caption="Palais de la Berbie, Albi"
+                        src="images/chantiers/construction-silos.webp"
+                        alt="Construction de silos"
+                        caption="Construction de silos"
                         class="shadow-lg"
                     />
                     {{-- Carrousel : même cadre qu'une photo, mais les vues défilent.
