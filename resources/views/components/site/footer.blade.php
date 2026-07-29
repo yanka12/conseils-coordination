@@ -33,7 +33,7 @@
         <div class="space-y-3">
             <x-site.info-card title="Siège social" icon="pin" variant="plain">
                 <p class="font-semibold text-white">20 rue Jean Rieux - 81000 Albi</p>
-                {{-- <x-ui.copy-email email="didier.zieba@conseils-coordination.com" class="mt-2" /> --}}
+                <x-ui.copy-email email="didier.zieba@conseils-coordination.com" class="mt-2" />
             </x-site.info-card>
 
             <x-site.info-card title="Mentions légales" icon="document" variant="dark" layout="stacked">
