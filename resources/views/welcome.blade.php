@@ -167,7 +167,7 @@
                         name="Pascale Perez"
                         role="Coordinatrice SPS, CC Conseils Coordination"
                         phone="07.69.60.89.59"
-                        email="didier.zieba@conseils-coordination.com"
+                        email="contact@conseils-coordination.com"
                         photo="images/experts/pascale.webp"
                     />
                 </div>
