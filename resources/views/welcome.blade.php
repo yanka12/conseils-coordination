@@ -6,9 +6,9 @@
 
         {{-- Notre exigence --}}
         <section id="exigence" class="mx-auto max-w-7xl px-6 py-10 sm:py-14 lg:px-8">
-            <x-ui.section-heading title="Notre exigence" align="center" max-width="max-w-none">
-                {{-- Titre centré, mais paragraphe laissé au fer à gauche : centré, il serait
-                     illisible sur toute la largeur de la grille. --}}
+            <x-ui.section-heading title="Notre exigence" align="center">
+                {{-- Titre centré, mais paragraphe laissé au fer à gauche : le drapeau
+                     gauche reste plus lisible sur un texte de plusieurs lignes. --}}
                 <p class="text-left">
                     C-C propose une
                     <strong class="font-semibold text-brand-900">prestation CSPS complète, rigoureuse et conforme à la réglementation</strong>,
@@ -46,8 +46,8 @@
                 ];
             @endphp
 
-            {{-- mt-4 : le même écart que celui qui sépare le titre de ce texte (section-heading). --}}
-            <div class="mt-4 grid gap-6 sm:grid-cols-2">
+            {{-- mt-10 : écart titre → contenu commun à toutes les sections. --}}
+            <div class="mt-10 grid gap-6 sm:grid-cols-2">
                 <div class="space-y-6">
                     <x-ui.photo
                         src="images/chantiers/stade-paul-lignon-rodez.webp"
@@ -95,12 +95,13 @@
                 <x-ui.section-heading
                     title="Une méthodologie éprouvée<br>pour votre sécurité"
                     align="center"
-                    max-width="max-w-3xl"
                 />
 
                 {{-- Grille resserrée : à pleine largeur, les cartes seraient plus larges que hautes.
                      Les cercles numérotés débordant en haut, gap-y est généreux pour qu'ils ne
-                     chevauchent pas la rangée précédente. --}}
+                     chevauchent pas la rangée précédente.
+                     mt-16 = l'écart commun mt-10 (2,5 rem) + le débord du cercle (-top-6, 1,5 rem) :
+                     l'écart perçu sous le titre est donc le même que dans les autres sections. --}}
                 <div class="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                     <x-site.methodology-step
                         number="1"
@@ -152,7 +153,6 @@
                     title="Des experts à votre service"
                     description="Coordinateurs SPS certifiés, à vos côtés du premier échange à la réception du chantier."
                     align="center"
-                    class="mx-auto"
                 />
 
                 <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-3xl lg:mx-auto">
@@ -182,7 +182,6 @@
                 title="Parlons de votre projet"
                 description="Faites le choix d'un accompagnement expert et réactif. Contactez-nous dès aujourd'hui."
                 align="center"
-                class="mx-auto"
             />
         </section>
     </main>

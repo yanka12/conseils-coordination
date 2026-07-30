@@ -3,7 +3,6 @@
         title="Missions principales assurées"
         description="Conseils - Coordination intervient sur toutes les phases du projet, de la conception à la réalisation :"
         align="center"
-        max-width="max-w-3xl"
     />
 
     {{-- grid-flow-col + 4 rangées : les cartes descendent la 1re colonne avant de passer à la 2de,
