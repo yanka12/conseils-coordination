@@ -22,7 +22,7 @@
                     <x-ui.button href="tel:0677762824" variant="light">
                         Appelez-nous
                     </x-ui.button>
-                    <x-ui.button href="mailto:contact@conseils-coordination.fr" variant="light">
+                    <x-ui.button href="mailto:didier.zieba@conseils-coordination.com" variant="light">
                         Envoyer un e-mail
                     </x-ui.button>
                 </div>

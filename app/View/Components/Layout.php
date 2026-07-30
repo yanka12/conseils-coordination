@@ -41,7 +41,7 @@ class Layout extends Component
             'logo' => $this->url . '/images/logos/Logo-CC.png',
             'image' => $this->image,
             'telephone' => '+33677762824',
-            'email' => 'contact@conseils-coordination.fr',
+            'email' => 'didier.zieba@conseils-coordination.com',
             'foundingDate' => '2004',
             'vatID' => 'FR60479345886',
             'address' => [
