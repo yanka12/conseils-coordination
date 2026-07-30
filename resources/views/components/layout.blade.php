@@ -6,7 +6,11 @@
 
         <title>{{ $title }}</title>
         <meta name="description" content="{{ $description }}">
-        <link rel="canonical" href="{{ $url }}">
+        <link rel="canonical" href="{{ $canonical }}">
+
+        {{-- Indexation par défaut, mais max-image-preview:large est nécessaire pour que
+             Google affiche la grande vignette dans les résultats et dans Discover. --}}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
         {{-- Partage sur les réseaux et messageries --}}
         <meta property="og:type" content="website">
@@ -14,7 +18,7 @@
         <meta property="og:site_name" content="Conseils Coordination">
         <meta property="og:title" content="{{ $title }}">
         <meta property="og:description" content="{{ $description }}">
-        <meta property="og:url" content="{{ $url }}">
+        <meta property="og:url" content="{{ $canonical }}">
         <meta property="og:image" content="{{ $image }}">
         <meta property="og:image:width" content="1900">
         <meta property="og:image:height" content="1131">
@@ -32,8 +36,18 @@
         <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
         {{-- La photo du hero est le plus gros élément affiché au chargement : la précharger
-             améliore directement le LCP, l'une des trois métriques Core Web Vitals. --}}
-        <link rel="preload" as="image" href="{{ asset('images/hero.webp') }}" fetchpriority="high">
+             améliore directement le LCP, l'une des trois métriques Core Web Vitals.
+             imagesrcset/imagesizes reprennent à l'identique le srcset du <img> (hero.blade.php) :
+             sans cela le préchargement viserait une autre variante que celle finalement
+             affichée, et le navigateur téléchargerait les deux. --}}
+        <link
+            rel="preload"
+            as="image"
+            href="{{ asset('images/hero.webp') }}"
+            imagesrcset="{{ asset('images/hero-960.webp') }} 960w, {{ asset('images/hero-1400.webp') }} 1400w, {{ asset('images/hero.webp') }} 1900w"
+            imagesizes="100vw"
+            fetchpriority="high"
+        >
 
         <script type="application/ld+json">
             {!! $schemaJson !!}

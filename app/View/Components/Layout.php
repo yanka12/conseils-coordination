@@ -7,16 +7,22 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
+    /** Racine du site, sans barre oblique finale : sert à composer les URL absolues. */
     public string $url;
+    /** URL réellement servie, barre oblique comprise : c'est elle qu'on déclare à Google. */
+    public string $canonical;
     public string $image;
     /** Fiche d'établissement JSON-LD, déjà encodée pour le <script>. */
     public string $schemaJson;
 
     public function __construct(
         public string $title = 'Coordonnateur SPS à Albi (81) — Conseils Coordination',
-        public string $description = 'Coordination SPS en Occitanie depuis 2004. Coordonnateurs certifiés niveau 1, missions réalisées en interne : PGC, DIUO, inspections communes et visites de chantier.',
+        // 155 caractères au maximum : au-delà, Google tronque la description dans ses
+        // résultats et la phrase se termine par des points de suspension.
+        public string $description = 'Coordonnateur SPS certifié niveau 1 à Albi (Tarn) depuis 2004 : PGC, DIUO, inspections communes et visites de chantier, réalisés en interne.',
     ) {
         $this->url = rtrim(config('app.url'), '/');
+        $this->canonical = $this->url . '/';
         $this->image = $this->url . '/images/hero.webp';
 
         // Fiche d'établissement. Google s'en sert pour le panneau de connaissance
@@ -25,6 +31,9 @@ class Layout extends Component
         $schema = [
             '@context' => 'https://schema.org',
             '@type' => 'ProfessionalService',
+            // Identifiant stable de l'établissement : il permet à Google de rattacher
+            // au même acteur les mentions trouvées ailleurs (annuaires, fiche locale).
+            '@id' => $this->url . '/#organisation',
             'name' => 'Conseils Coordination',
             'legalName' => 'SARL Conseils Coordination',
             'description' => $this->description,
@@ -48,14 +57,39 @@ class Layout extends Component
                 'latitude' => 43.9100726,
                 'longitude' => 2.1602874,
             ],
+            // Zone d'intervention déclarée : le Tarn, où l'établissement est implanté.
+            // Un périmètre resserré et cohérent avec l'adresse est mieux exploité par
+            // les résultats locaux qu'une région entière revendiquée sans point d'ancrage.
             'areaServed' => [
-                ['@type' => 'AdministrativeArea', 'name' => 'Occitanie'],
+                ['@type' => 'AdministrativeArea', 'name' => 'Tarn'],
+                ['@type' => 'City', 'name' => 'Albi'],
             ],
             'knowsAbout' => [
                 'Coordination SPS',
                 'Sécurité et Protection de la Santé',
                 'Plan Général de Coordination',
                 "Dossier d'Intervention Ultérieure sur l'Ouvrage",
+            ],
+            // Catalogue des prestations : reprend les missions listées sur la page, pour
+            // que le service décrit dans le texte et celui déclaré à Google coïncident.
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Missions de coordination SPS',
+                'itemListElement' => array_map(
+                    fn (string $service) => [
+                        '@type' => 'Offer',
+                        'itemOffered' => ['@type' => 'Service', 'name' => $service],
+                    ],
+                    [
+                        'Coordination SPS en phase conception',
+                        'Coordination SPS en phase réalisation',
+                        'Rédaction du Plan Général de Coordination (PGC SPS)',
+                        "Élaboration du Dossier d'Intervention Ultérieure sur l'Ouvrage (DIUO)",
+                        'Inspections communes et analyse des PPSPS',
+                        'Visites de chantier et vacations de sécurité',
+                        'Tenue du registre journal SPS',
+                    ],
+                ),
             ],
             'founder' => ['@type' => 'Person', 'name' => 'Didier Zieba'],
         ];

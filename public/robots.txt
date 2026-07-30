@@ -1,2 +1,5 @@
+# Site vitrine d'une seule page : tout est destiné à être exploré et indexé.
 User-agent: *
 Disallow:
+
+Sitemap: https://conseils-coordination.com/sitemap.xml

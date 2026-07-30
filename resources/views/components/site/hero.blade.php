@@ -10,9 +10,16 @@
     {{-- fetchpriority : c'est l'image la plus grande de la page au chargement, donc celle que
          Google mesure pour le LCP. Elle doit partir en premier. Jamais en lazy : elle est
          visible d'emblée. --}}
+    {{-- srcset : la photo occupe toute la largeur de l'écran (sizes="100vw"), le navigateur
+         choisit donc la variante correspondant à l'appareil. Un mobile télécharge 93 Ko au
+         lieu des 301 Ko de la version desktop, et le LCP est mesuré sur mobile en priorité.
+         Toute modification ici doit être répercutée sur le preload du <head> (layout), faute
+         de quoi le navigateur télécharge deux fichiers différents. --}}
     <img
         data-parallax
         src="{{ asset('images/hero.webp') }}"
+        srcset="{{ asset('images/hero-960.webp') }} 960w, {{ asset('images/hero-1400.webp') }} 1400w, {{ asset('images/hero.webp') }} 1900w"
+        sizes="100vw"
         alt="Grue et ferraillage sur un chantier de gros œuvre"
         width="1900"
         height="1131"
