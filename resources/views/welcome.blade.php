@@ -27,7 +27,7 @@
                 // eux-mêmes les dimensions sur les fichiers.
                 $chantiers = [
                     ['src' => 'images/chantiers/barrage-saint-geraud.webp', 'alt' => 'Travaux de coordination sur le barrage de Saint-Géraud', 'caption' => 'Barrage de Saint-Géraud'],
-                    ['src' => 'images/chantiers/renov-pont-abli.webp', 'alt' => 'Rénovation d\'un pont à Albi', 'caption' => 'Rénovation d\'un pont, Albi'],
+                    ['src' => 'images/chantiers/renov-pont-abli.webp', 'alt' => 'Rénovation du Pont-vieux à Albi', 'caption' => 'Rénovation d\'un pont, Albi'],
                     ['src' => 'images/chantiers/palais-berbie-albi.webp', 'alt' => 'Chantier au palais de la Berbie à Albi', 'caption' => 'Palais de la Berbie, Albi'],
                     ['src' => 'images/chantiers/reservoir-eau-potable-ambialet.webp', 'alt' => 'Réservoir d\'eau potable à Ambialet', 'caption' => 'Réservoir d\'eau potable, Ambialet'],
                     ['src' => 'images/chantiers/terrassement-centre-enfouissement.webp', 'alt' => 'Terrassement d\'un centre d\'enfouissement', 'caption' => 'Terrassement, centre d\'enfouissement'],
