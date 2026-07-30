@@ -22,7 +22,7 @@
                 // images/chantiers/ on associe son texte alternatif (alt, pour
                 // l'accessibilité et le référencement) et sa légende affichée (caption).
                 // Source unique alimentant le carrousel ci-dessous ; les trois photos
-                // affichées en fixe (stade Paul-Lignon, silos, vieux pont d'Albi) n'y
+                // affichées en fixe (stade Paul-Lignon, silos, Pont-Vieux d'Albi) n'y
                 // figurent pas, pour ne pas apparaître deux fois. Les composants lisent
                 // eux-mêmes les dimensions sur les fichiers.
                 $chantiers = [
@@ -59,14 +59,14 @@
                     <div>
                         <x-ui.photo
                             src="images/chantiers/renov-vieux-pont-albi.webp"
-                            alt="Rénovation du vieux pont d'Albi"
-                            caption="Le vieux pont d'Albi"
+                            alt="Rénovation du Pont-Vieux d'Albi"
+                            caption="Le Pont-Vieux, Albi"
                             class="shadow-lg"
                         />
                         <div class="mt-4">
                             <p class="text-base font-bold text-brand-900">Des projets d'envergure en Occitanie</p>
                             <p class="mt-1 text-sm text-slate-500">
-                                Le vieux pont d'Albi, le palais de la Berbie, le stade Paul-Lignon de Rodez, barrages et sites industriels…
+                                Le Pont-Vieux d'Albi, le palais de la Berbie, le stade Paul-Lignon de Rodez, barrages et sites industriels…
                             </p>
                         </div>
                     </div>
