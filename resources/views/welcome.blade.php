@@ -161,14 +161,14 @@
                         role="Gérant, CC Conseils Coordination"
                         phone="06.77.76.28.24"
                         email="didier.zieba@conseils-coordination.com"
-                        photo="images/experts/didier.webp"
+                        photo="images/experts/didier-zieba.webp"
                     />
                     <x-site.expert-card
                         name="Pascale Perez"
                         role="Coordinatrice SPS, CC Conseils Coordination"
                         phone="07.69.60.89.59"
                         email="contact@conseils-coordination.com"
-                        photo="images/experts/pascale.webp"
+                        photo="images/experts/pascale-perez.webp"
                     />
                 </div>
             </div>
